@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Manage User";
+    Layout = "_Layout";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-6">
+            <form method="post">
+                <div class="form-group">
+                    <label for="EmpNo">Enter Employee code / id :</label>
+                    <input id="EmpNo" class="form-control" type="text" placeholder="Enter EMP id" />
+                </div>
+                <button type="submit" class="btn btn-primary">submit</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Select an Organisation</h4>
+                </div>
+                <div class="card-body">
+                    <select id="orgSelect" class="form-select">
+                        <option value="">-- Select Organisation --</option>
+                        @foreach (var item in (SelectList)ViewBag.OrgList)
+                        {      
+                        <option value="@item.Value">@item.Text</option>
+                         }
+                    </select>
+
+                    <div id="orgDetails" class="mt-4 d-none">
+                        <h5>Organisation Details</h5>
+                        <p><strong>Name:</strong> <span id="orgName"></span></p>
+                        <p><strong>ID:</strong> <span id="orgId"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="col-6">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-primary text-white">
+                                <h4 class="mb-0">Select an Organisation</h4>
+                            </div>
+                            <div class="card-body">
+                                <select id="orgSelect" class="form-select">
+                                    <option value="">-- Select Organisation --</option>
+                                    @foreach (var item in (SelectList)ViewBag.OrgList)
+                        {
+                                    <option value="@item.Value">@item.Text</option>
+                        }
+                                </select>
+
+                                <div id="orgDetails" class="mt-4 d-none">
+                                    <h5>Organisation Details</h5>
+                                    <p><strong>Name:</strong> <span id="orgName"></span></p>
+                                    <p><strong>ID:</strong> <span id="orgId"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    </div>
+
+</div>
+
+
+
+
+@section Scripts {
+    <script>
+        document.getElementById("orgSelect").addEventListener("change", function () {
+            const selectedValue = this.value;
+            const detailsDiv = document.getElementById("orgDetails");
+
+            if (!selectedValue) {
+                detailsDiv.classList.add("d-none");
+                return;
+            }
+
+            fetch(`/Home/GetOrganisationDetails?selectedOrgId=${selectedValue}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById("orgName").textContent = data.orgName;
+                    document.getElementById("orgId").textContent = data.orgId;
+                    detailsDiv.classList.remove("d-none");
+                })
+                .catch(error => {
+                    console.error("Fetch error:", error);
+                    detailsDiv.classList.add("d-none");
+                });
+        });
+    </script>
+}

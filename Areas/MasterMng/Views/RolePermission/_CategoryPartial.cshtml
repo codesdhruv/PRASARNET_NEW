@@ -1,0 +1,28 @@
+﻿@model Permission
+
+<li class="list-unstyled ms-2">
+    @if (Model.Children.Any())
+    {
+        <i class="mdi mdi-menu-right toggle-arrow" style="cursor:pointer;"></i>
+    }
+    else
+    {
+        <i class="mdi" style="width: 1.2em; display: inline-block;"></i> <!-- Placeholder for alignment -->
+    }
+
+    @*<input type="checkbox" name="selectedIds" value="@Model.PermissionId" @(Model.IsAssigned ? "checked" : "") />*@
+    <input type="checkbox" name="selectedIds" value="@Model.PermissionId" @(Model.IsAssigned ? "checked" : "") />
+    @Model.PermissionName
+
+    @if (Model.Children.Any())
+    {
+        <ul class="nested ms-3" style="display:none;">
+            @foreach (var child in Model.Children)
+            {
+                @Html.Partial("_CategoryPartial", child)
+            }
+        </ul>
+    }
+</li>
+
+

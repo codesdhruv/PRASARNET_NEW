@@ -1,0 +1,75 @@
+﻿@model PRASARNET.Areas.MasterMng.Models.Roles
+
+
+<div class="content-wrapper">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white rounded-top-3">
+            <h2 class="mb-1">Role Details</h2>
+        </div>
+        <div class="card-body">
+
+            <div class="card p-4 shadow-sm">
+                <dl class="row">
+                    <dt class="col-sm-3">Role ID</dt>
+                    <dd class="col-sm-9">@Model.RoleID</dd>
+
+                    <dt class="col-sm-3">Role Name</dt>
+                    <dd class="col-sm-9">@Model.RoleName</dd>
+
+                    <dt class="col-sm-3">IP Address</dt>
+                    <dd class="col-sm-9">@Model.IpAddress</dd>
+
+                    <dt class="col-sm-3">Is Active</dt>
+                    <dd class="col-sm-9">@Model.IsActive</dd>
+
+                    <dt class="col-sm-3">Created By</dt>
+                    <dd class="col-sm-9">@Model.CreatedBy</dd>
+
+                    <dt class="col-sm-3">Created At</dt>
+                    <dd class="col-sm-9">@Model.CreatedAt?.ToString("g")</dd>
+
+                    <dt class="col-sm-3">Updated By</dt>
+                    <dd class="col-sm-9">@Model.UpdatedBy</dd>
+
+                    <dt class="col-sm-3">Updated At</dt>
+                    <dd class="col-sm-9">@Model.UpdatedAt?.ToString("g")</dd>
+
+                    <dt class="col-sm-3">Activated/Inactivated By</dt>
+                    <dd class="col-sm-9">@Model.ActInctBy</dd>
+
+                    <dt class="col-sm-3">Activated/Inactivated Date</dt>
+                    <dd class="col-sm-9">@Model.ActInctDate?.ToString("g")</dd>
+
+                    <dt class="col-sm-3">Permissions assigned to role :</dt>
+                    <dd class="col-sm-9">
+                        <ul class="list-unstyled ml-3">
+                            @if (ViewBag.RolePermissions != null)
+                            {
+                                foreach (var perm in ViewBag.RolePermissions)
+                                {
+                                    <li>@perm.PermissionName</li>
+                                }
+                            }
+                            else
+                            {
+                                <li>No permissions assigned.</li>
+                            }
+                        </ul>
+
+                    </dd>
+
+
+                </dl>
+
+
+
+
+                <a asp-action="Index" class="btn btn-secondary btn-sm">Back to List</a>
+                <a asp-action="RoleEdit" asp-route-id="@Model.RoleID" class="btn btn-primary btn-sm">Edit</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

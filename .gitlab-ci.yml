@@ -1,0 +1,151 @@
+default:
+  tags:
+    - windows-srv22
+
+stages:
+  - build
+  - test
+  - audit  # New stage for package audit
+  - publish
+  - deploy
+
+variables:
+  PUBLISH_PATH: "./publish/"
+  SOLUTION_FILE: "PRASARNET.sln"
+  PROJECT_FILE: "PRASARNET.csproj"
+  DEPLOY_PATH: "D:\\www\\beta_prasarnet"
+  BACKUP_PATH: "D:\\www\\backup\\beta_prasarnet"
+  IIS_APP_POOL: "beta-prasarnet"
+
+before_script:
+  - echo "Running on Windows Server..."
+  - dotnet --version
+
+
+build:
+  stage: build
+  script:
+    - dotnet restore "$SOLUTION_FILE"
+    - dotnet build "$SOLUTION_FILE" --configuration Release #--verbosity diagnostic 
+  only:
+      - main  # Run only on main branch
+
+test:
+  stage: test
+  script:
+    - echo "Running tests..."
+    - dotnet test "$SOLUTION_FILE" --configuration Release --no-build
+  only:
+      - main  # Run only on main branch
+
+audit:
+  stage: audit
+  script:
+    - echo "Checking for outdated .NET packages..."
+    - dotnet restore
+    - dotnet list "$PROJECT_FILE" package --outdated
+  only:
+    - main  # Run only on main branch
+
+publish:
+  stage: publish
+  script:
+    - echo "Publishing application..."
+    - dotnet publish "$SOLUTION_FILE" --configuration Release --output "$PUBLISH_PATH" 
+    #- echo "Copying static assets..."
+    #- robocopy "wwwroot" "$PUBLISH_PATH\wwwroot" /E /COPYALL /R:3 /W:5 || exit 0
+  artifacts:
+    paths:
+      - "$PUBLISH_PATH"
+    expire_in: 30 minutes
+    when: always
+   # exclude:
+   #   - "**/obj/"
+   #  - "**/bin/"
+   #   - "**/node_modules/"
+    #  - "**/*.csproj.user"
+    #  - "**/*.suo"
+     # - "**/*.pdb"
+      #- "**/*.cache"
+      #- "**/*.log"
+      #- "**/Properties/launchSettings.json"
+  only:
+      - main  # Run only on main branch
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to Windows Server..."
+
+    # - echo "Ensuring backup directory exists..."
+    # - powershell -Command "& { if (!(Test-Path "$BACKUP_PATH")) { New-Item -ItemType Directory -Path "$BACKUP_PATH" -Force } }"
+
+    - echo "Stopping IIS site..."
+    - powershell -Command "& { Stop-WebAppPool -Name "$IIS_APP_POOL" }"
+
+    
+    ## Use .NET Zip  
+    # - powershell -Command "& { 
+    #       Add-Type -Assembly System.IO.Compression.FileSystem;
+    #       [System.IO.Compression.ZipFile]::CreateFromDirectory(
+    #           '${DEPLOY_PATH}', 
+    #           '${BACKUP_PATH}\backup_$(Get-Date -Format yyyyMMddHHmmss).zip'
+    #       ); 
+    #   }"
+
+
+    - echo "Deploying new version..."
+    - powershell -Command "& {
+          icacls '$DEPLOY_PATH' /grant Everyone:F /T;
+
+          robocopy '$PUBLISH_PATH' '$DEPLOY_PATH' /E /COPYALL /PURGE /R:3 /W:5 /XD '$DEPLOY_PATH/upload' /XF 'appsettings.json' 'web.config';
+
+          if ($LASTEXITCODE -gt 3) {
+              Write-Error 'Robocopy failed during deployment.'
+              exit 1
+          } else {
+              Write-Host 'Deployment successful.'
+          }
+      }"
+
+
+
+
+
+
+
+
+
+    #- Copy-Item -Recurse -Force $PUBLISH_PATH\* $DEPLOY_PATH
+    #- xcopy "C:\GitLab-Runner\builds\F4Mz86yKr\0\gitlab-instance\ci-cd-build-test" "D:\www\Avedan_Build_test" /E /H /C /I
+
+    #- PowerShell -NoProfile -Command "Copy-Item -Path C:\GitLab-Runner\builds\F4Mz86yKr\0\gitlab-instance\ci-cd-build-test\*" -Destination "D:\www\Avedan_Build_test\" -Recurse -Force"
+
+
+
+    - echo "Starting IIS site..."
+    - powershell -Command "& { Start-WebAppPool -Name "$IIS_APP_POOL" }"
+
+    # - echo "Cleaning up old backups..."
+    # - powershell -Command "& { 
+    #         icacls '${BACKUP_PATH}' /grant Everyone:F /T; 
+
+    #         if (Test-Path '${BACKUP_PATH}') { 
+    #             Get-ChildItem -Path '${BACKUP_PATH}' -Filter 'backup_*.zip' | 
+    #             Where-Object { `$_.LastWriteTime -lt (Get-Date).AddDays(-7) } | 
+    #             Remove-Item -Force -ErrorAction Stop 
+    #         } else { 
+    #             Write-Host 'Backup directory does not exist. Skipping cleanup.' 
+    #         } 
+    #     }"
+
+
+
+
+
+    # Testing only
+    #- Get-ChildItem -Path "$DEPLOY_PATH" -Recurse
+    #- Test-Path "$DEPLOY_PATH\web.config"
+    
+  only:
+    - main  # Deploy only when changes are pushed to the main branch

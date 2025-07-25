@@ -1,0 +1,302 @@
+﻿@model PRASARNET.Areas.TRAM.Models.ApplicantDashboardViewModel
+
+
+@{
+    ViewBag.Title = "Applicant Dashboard";
+    var serial = 1;
+}
+<div class="content-wrapper pt-0 px-1">
+    <p class="pt-4 pb-2 h3 text-center text-capitalize ">Upload Documents for Transfer Applications</p>
+
+    <!-- === TRAINING DETAILS === -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mb-0">Training Details</h5>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#trainingModal">
+                + Add Training
+            </button>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Course</th>
+                        <th>Institute</th>
+                        <th>Info</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Trainings != null && Model.Trainings.Any())
+                    {
+                        foreach (var item in Model.Trainings)
+                        {
+                            <tr>
+                                <td>@serial++</td>
+                                <td>@item.FromDate?.ToString("dd-MM-yyyy")</td>
+                                <td>@item.ToDate?.ToString("dd-MM-yyyy")</td>
+                                <td>@item.CourseName</td>
+                                <td>@item.Host_Institute</td>
+                                <td>@item.AnyRelevantInfo</td>
+                                <td>
+                                    <form method="post" asp-controller="Training" asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Are you sure?');">
+                                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="7" class="text-center">No training records found.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- === TRANSFER HISTORY === -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mb-0">Transfer History</h5>
+            <a class="btn btn-primary btn-sm" asp-controller="Transfer" asp-action="Create">+ Add Transfer</a>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Wing</th>
+                        <th>Designation</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Station</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.TransferHistory != null && Model.TransferHistory.Any())
+                    {
+                        serial = 1;
+                        foreach (var item in Model.TransferHistory)
+                        {
+                            <tr>
+                                <td>@serial++</td>
+                                <td>@item.Wing</td>
+                                <td>@item.DesignationName</td>
+                                <td>@item.FromDate.ToString("dd-MM-yyyy")</td>
+                                <td>@item.ToDate</td>
+                                <td>@item.StationName</td>
+                                <td>
+                                    <form method="post" asp-controller="Transfer" asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Delete this transfer?');">
+                                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="7" class="text-center">No transfer records found.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- === OTHER RECORDS === -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mb-0">Other Records</h5>
+            <a class="btn btn-primary btn-sm" asp-controller="OtherRecord" asp-action="Create">+ Add Other Record</a>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Type</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Place</th>
+                        <th>Sanctioned By</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.OtherRecords != null && Model.OtherRecords.Any())
+                    {
+                        serial = 1;
+                        foreach (var item in Model.OtherRecords)
+                        {
+                            <tr>
+                                <td>@serial++</td>
+                                <td>@item.Type</td>
+                                <td>@item.FromDate.ToString("dd-MM-yyyy")</td>
+                                <td>@(item.ToDate?.ToString("dd-MM-yyyy") ?? "-")</td>
+                                <td>@item.PlaceDuringAbsence</td>
+                                <td>@item.SanctioningAuthority</td>
+                                <td>
+                                    <form method="post" asp-controller="OtherRecord" asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Delete this record?');">
+                                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="7" class="text-center">No other records found.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- === HEALTH CATEGORY === -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mb-0">Health Category</h5>
+            <a class="btn btn-primary btn-sm" asp-controller="Health" asp-action="Create">+ Add Health Info</a>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Disability</th>
+                        <th>Self/Family</th>
+                        <th>Name</th>
+                        <th>Relation</th>
+                        <th>Age</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.HealthCategories != null && Model.HealthCategories.Any())
+                    {
+                        serial = 1;
+                        foreach (var item in Model.HealthCategories)
+                        {
+                            <tr>
+                                <td>@serial++</td>
+                                <td>@item.TypeofDisabilityName</td>
+                                <td>@item.Self_Family</td>
+                                <td>@item.Name</td>
+                                <td>@item.Relation</td>
+                                <td>@item.Age</td>
+                                <td>
+                                    <form method="post" asp-controller="Health" asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Delete this entry?');">
+                                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="7" class="text-center">No health records found.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- === UPLOADED DOCUMENTS === -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mb-0">Uploaded Documents</h5>
+            <a class="btn btn-primary btn-sm" asp-controller="Documents" asp-action="Upload">+ Upload Document</a>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Type</th>
+                        <th>Subject</th>
+                        <th>Remarks</th>
+                        <th>File</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.UploadedDocuments != null && Model.UploadedDocuments.Any())
+                    {
+                        serial = 1;
+                        foreach (var item in Model.UploadedDocuments)
+                        {
+                            <tr>
+                                <td>@serial++</td>
+                                <td>@item.DocType</td>
+                                <td>@item.Subject</td>
+                                <td>@item.Remarks</td>
+                                <td><a href="/uploads/@item.Filename" target="_blank">View</a></td>
+                                <td>
+                                    <form method="post" asp-controller="Documents" asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Delete this file?');">
+                                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="6" class="text-center">No documents uploaded.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Training Modal -->
+<div class="modal fade" id="trainingModal" tabindex="-1" role="dialog" aria-labelledby="trainingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form asp-action="AddTraining" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="trainingModalLabel">Add Training Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Course Name</label>
+                            <input type="text" name="CourseName" class="form-control" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Host Institute</label>
+                            <input type="text" name="Host_Institute" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>From Date</label>
+                            <input type="date" name="FromDate" class="form-control" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>To Date</label>
+                            <input type="date" name="ToDate" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Any Relevant Info</label>
+                        <textarea name="AnyRelevantInfo" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

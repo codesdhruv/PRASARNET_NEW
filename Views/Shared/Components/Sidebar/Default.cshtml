@@ -1,0 +1,107 @@
+﻿@model List<MenuItem>
+
+@functions {
+    public string GetMenuCollapseId(string input)
+    {
+        return input.Replace(" ", "").Replace("&", "").Replace("/", "").Replace("\\", "").Replace(".", "").Replace("#", "");
+    }
+
+    public string getMenuIcon(string moduleName)
+    {
+        var icon = "";
+        if (moduleName == "HRIS")
+        {
+            icon = "mdi mdi-human-male-female";
+        }
+        else if (moduleName == "TRAM")
+        {
+            icon = "mdi mdi-account-card-details";
+        }
+        else if (moduleName == "PRASARNET")
+        {
+            icon = "mdi mdi-satellite-variant";
+        }
+        else if (moduleName == "Manage Documents")
+        {
+            icon = "mdi mdi-file-document";
+        }
+        else if (moduleName == "Master Management")
+        {
+            icon = "mdi mdi-database";
+        }
+        else
+        {
+            icon = "icon-grid";
+        }
+        return icon;
+    }
+
+
+}
+
+
+@if (Model != null && Model.Any())
+{
+    var groupedMenus = Model
+    .GroupBy(m => new { m.ParentPermissionId, m.ParentPermissionName })
+    .OrderBy(g => g.Key.ParentPermissionId);
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="icon-grid menu-icon"></i>
+                    <span class="menu-title">Main Dashboard</span>
+                </a>
+            </li>
+            @foreach (var group in groupedMenus)
+            {
+                var safeId = GetMenuCollapseId(group.Key.ParentPermissionName);
+                var menuIcon = getMenuIcon(group.Key.ParentPermissionName);
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#@safeId" aria-expanded="false" aria-controls="@safeId">
+                        <i class="@menuIcon menu-icon"></i>
+                        <span class="menu-title">@group.Key.ParentPermissionName</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="@safeId">
+                        <ul class="nav flex-column sub-menu">
+                            @foreach (var child in group)
+                            {
+                                <li class="nav-item"> <a class="nav-link" asp-area="@child.Area" asp-controller="@child.ControllerClass" asp-action="@child.ActionMethod">@child.PermissionName</a></li>
+
+                            }
+                        </ul>
+                    </div>
+                </li>
+            }
+
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Portals">
+                    <i class="mdi mdi-web menu-icon"></i>
+                    <span class="menu-title">Our Portals</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+}
+else
+{
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="icon-grid menu-icon"></i>
+                    <span class="menu-title">Main Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Portals">
+                    <i class="mdi mdi-web menu-icon"></i>
+                    <span class="menu-title">Our Portals</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+}

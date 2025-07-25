@@ -1,0 +1,44 @@
+﻿@model List<TrainingDetailViewModel>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Course</th>
+            <th>Institute</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Info</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            int serial = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@serial++</td>
+                    <td>@item.CourseName</td>
+                    <td>@item.Host_Institute</td>
+                    <td>@item.FromDate?.ToString("dd-MM-yyyy")</td>
+                    <td>@item.ToDate?.ToString("dd-MM-yyyy")</td>
+                    <td>@item.AnyRelevantInfo</td>
+                    <td>
+                        @*<form method="post" asp-controller="Training" asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Are you sure?');">
+                            <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                        </form>*@
+                        <button type="button" class="btn btn-sm btn-danger" onclick="deleteTraining(@item.Id)">Delete</button>
+
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="7" class="text-center">No training records found.</td></tr>
+        }
+    </tbody>
+</table>
+

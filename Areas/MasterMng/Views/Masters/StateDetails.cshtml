@@ -1,0 +1,27 @@
+﻿@model State
+<div class="content-wrapper p-4">
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white rounded-top-3">
+            <h2 class="mb-1">State Details</h2>
+        </div>
+        <div class="card-body">
+            <ul class="mb-4">
+                <li><strong>ID:</strong> @Model.StateID</li>
+                <li><strong>LGD Code:</strong> @Model.LGD_Code</li>
+                <li><strong>Name:</strong> @Model.StateName</li>
+                <li><strong>Type:</strong> @Model.IsState </li>
+                <li><strong>Zone:</strong> @Model.ZoneID</li>
+                <li><strong>Census 2001:</strong> @Model.CencusCode_2001</li>
+                <li><strong>Census 2011:</strong> @Model.CencusCode_2011</li>
+                <li><strong>Active:</strong> @(Model.IsActive ? "Yes" : "No")</li>
+            </ul>
+
+            <a href="/@ViewContext.RouteData.Values["area"]/@ViewContext.RouteData.Values["controller"]/StateView"
+               class="btn btn-primary btn-sm">
+                <i class="mdi mdi-arrow-left"></i> Back
+            </a>
+        </div>
+    </div>
+
+</div>

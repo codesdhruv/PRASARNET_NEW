@@ -1,0 +1,147 @@
+﻿@model PRASARNET.Areas.MasterMng.Models.Roles
+
+
+@{
+    Layout = "_Layout";
+    var roles = ViewBag.Roles as List<Roles>;
+    var selectedRoleID = ViewBag.SelectedRoleID as int?;
+    var permissions = ViewBag.Permissions as List<Permission>;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+
+        <div class="col-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Select Role to manage its permisssion</h4>
+                </div>
+                <div class="card-body">
+
+                    <form method="post">
+                        <div class="form-group">
+                            <label>Select Role</label>
+                            <select name="RoleID" class="form-control" asp-for="@selectedRoleID" id="RoleID" required>
+                                <option value="">-- Select Role --</option>
+                                @foreach (var role in roles)
+                                {
+                                    <option value="@role.RoleID">@role.RoleName</option>
+                                }
+
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 mt-2">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Permisssion</h4>
+                </div>
+                <div class="card-body">
+                    <div id="permissionsList"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        function initializePermissionTreeEvents() {
+            document.querySelectorAll(".toggle-arrow").forEach(function (arrow) {
+                arrow.removeEventListener("click", toggleHandler); // Remove duplicate listeners
+                arrow.addEventListener("click", toggleHandler);
+            });
+
+            document.querySelectorAll("input[type='checkbox']").forEach(function (checkbox) {
+                checkbox.removeEventListener("change", checkboxHandler); // Remove duplicate listeners
+                checkbox.addEventListener("change", checkboxHandler);
+            });
+        }
+
+        function toggleHandler() {
+            const nestedList = this.parentElement.querySelector("ul.nested");
+            if (nestedList) {
+                const isCollapsed = nestedList.style.display === "none";
+                nestedList.style.display = isCollapsed ? "block" : "none";
+                this.classList.remove(isCollapsed ? "mdi-menu-right" : "mdi-menu-down");
+                this.classList.add(isCollapsed ? "mdi-menu-down" : "mdi-menu-right");
+            }
+        }
+
+        function checkboxHandler() {
+            // Check/uncheck all children
+            var li = this.closest("li");
+            if (li) {
+                var childCheckboxes = li.querySelectorAll("ul input[type='checkbox']");
+                childCheckboxes.forEach(cb => {
+                    cb.checked = this.checked;
+                    cb.indeterminate = false;
+                });
+            }
+
+            // Update parent checkboxes
+            updateParentCheckbox(this);
+        }
+
+        function updateParentCheckbox(childCheckbox) {
+            var li = childCheckbox.closest("li");
+            if (!li) return;
+
+            var parentLi = li.parentElement.closest("li");
+            if (!parentLi) return;
+
+            var parentCheckbox = parentLi.querySelector("> input[type='checkbox']");
+            if (!parentCheckbox) return;
+
+            var siblingCheckboxes = Array.from(parentLi.querySelectorAll("> ul > li > input[type='checkbox']"));
+
+            var allChecked = siblingCheckboxes.every(cb => cb.checked);
+            var noneChecked = siblingCheckboxes.every(cb => !cb.checked);
+
+            if (allChecked) {
+                parentCheckbox.checked = true;
+                parentCheckbox.indeterminate = false;
+            } else if (noneChecked) {
+                parentCheckbox.checked = false;
+                parentCheckbox.indeterminate = false;
+            } else {
+                parentCheckbox.checked = false;
+                parentCheckbox.indeterminate = true;
+            }
+
+            updateParentCheckbox(parentCheckbox);
+        }
+
+        $(document).ready(function () {
+            $('#RoleID').change(function () {
+                var roleId = $(this).val();
+
+                if (roleId) {
+                    $.ajax({
+                        url: '@Url.Action("TreeView", "RolePermission")',
+                        data: { roleID: roleId },
+                        type: 'GET',
+                        success: function (data) {
+                            $('#permissionsList').html(data);
+                            initializePermissionTreeEvents(); // 🔁 Initialize after content is loaded
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error fetching permissions:", error);
+                        }
+                    });
+                } else {
+                    $('#permissionsList').html('');
+                }
+            });
+
+            initializePermissionTreeEvents(); // Initialize initially as well
+        });
+    </script>
+}
+

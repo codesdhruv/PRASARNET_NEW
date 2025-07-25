@@ -1,0 +1,65 @@
+﻿@model StationTypeModel
+
+<div class="content-wrapper p-4">
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white rounded-top-3">
+            <h2 class="mb-1">@(Model.StationTypeId == 0  ? "Create new Station Type" : "Update " + Model.StationType )</h2>
+
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 mx-auto shadow-sm">
+                    <form asp-action="@(Model.StationTypeId == 0 ? "Create" : "Edit")">
+
+                        <div class="form-group">
+                            <label asp-for="StationType"></label>
+                            @if (ViewContext.RouteData.Values["action"].ToString() == "Edit")
+                            {
+                            <input asp-for="StationType" class="form-control" value="@Model.StationType" readonly />
+                            }
+                            else
+                            {
+                            <input asp-for="StationType" class="form-control" />
+                            }
+                        </div>
+
+
+                        @*<div class="form-group">
+                            <label asp-for="OrganizationId"></label>
+                            <input asp-for="OrganizationId" class="form-control" />
+                        </div>*@
+
+                        <div class="form-group">
+                            <label asp-for="OrganizationId" class="control-label"></label>
+                            <select asp-for="OrganizationId" class="form-control" asp-items="Model.OrganizationList">
+                                <option value="">-- Select Organization --</option>
+                            </select>
+                            <span asp-validation-for="OrganizationId" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="Abbreviation"></label>
+                            <input asp-for="Abbreviation" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Remarks"></label>
+                            <input asp-for="Remarks" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IsActive"></label>
+                            <input asp-for="IsActive" type="checkbox" />
+                        </div>
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <a asp-action="StationTypeList" class="btn btn-secondary">Back</a>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

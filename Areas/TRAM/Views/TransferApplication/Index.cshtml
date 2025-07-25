@@ -1,0 +1,95 @@
+﻿@model List<TransferApplicationViewModel>
+@{
+    var serialNumber = 1;
+}
+
+<div class="content-wrapper p-0">
+
+    <div class="container-fluid mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="h3">Transfer Applications Records</p>
+            <a class="btn btn-success" asp-controller="TransferApplication" asp-action="Apply">
+                + Apply New Application
+            </a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>S.No</th>
+                        <th>Application No</th>
+                        <th>Forwarded To</th>
+                        <th>Options Seeking</th>
+                        <th>Options (Tenure)</th>
+                        <th>Application Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@serialNumber</td>
+                                <td><strong>@item.ApplicationNo</strong></td>
+                                <td>
+                                    <div>@item.ForwardedToCode</div>
+                                    <div class="pt-2 text-small">@item.ForwardedToName</div>
+                                </td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.Option1))
+                                    {<div class="pt-1 text-small">1. @item.Option1</div>}
+                                    @if (!string.IsNullOrEmpty(item.Option2))
+                                    {<div class="pt-1 text-small">2. @item.Option2</div>}
+                                    @if (!string.IsNullOrEmpty(item.Option3))
+                                    {<div class="pt-1 text-small">3. @item.Option3</div>}
+                                </td>
+                                <td>
+                                    <div class="pt-1 text-small">1. @item.TenureOption1</div>
+                                    <div class="pt-1 text-small">2. @item.TenureOption2</div>
+                                    <div class="pt-1 text-small">3. @item.TenureOption3</div>
+                                </td>
+
+                                @if (!item.IsFinalSubmit)
+                                {
+                                    <td style="height: 80px; text-align: center;">
+                                        <span class="text-danger font-weight-bold mb-1">Drafted</span>
+                                        <img src="@Url.Content("~/images/GIF/drafted.gif")" alt="Pending" style="width: 35px; height: 35px;" />
+                                        @if (!string.IsNullOrWhiteSpace(item.LastDraftedDate))
+                                        {
+                                            <div class="text-muted text-small py-2"> @item.LastDraftedDate </div>
+                                        }
+                                        <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.ApplicationId">Edit/Submit</a>
+                                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.ApplicationId">Delete</a>
+
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="height: 80px; text-align: center;">
+                                        <span class="text-success font-weight-bold mb-1">Submitted</span>
+                                        <img src="@Url.Content("~/images/GIF/done.gif")" alt="Pending" style="width: 40px; height: 40px;" />
+                                        <div class="text-muted text-small py-2">Submitted On: @(item.FinalAppSubmitOn) </div>
+                                        <a class="btn btn-sm btn-primary" asp-action="Preview" asp-route-id="@item.ApplicationId">Print</a>
+                                        <a class="btn btn-sm btn-info" asp-action="Track" asp-route-id="@item.ApplicationId">Track</a>
+                                    </td>
+                                }
+                            </tr>
+                            serialNumber++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center text-muted py-4">
+                                <i class="fas fa-info-circle"></i> No transfer applications found.
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

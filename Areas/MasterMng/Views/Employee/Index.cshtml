@@ -1,0 +1,126 @@
+﻿@model PRASARNET.Areas.MasterMng.Models.EmployeePersonalDetails
+@{
+    EmployeePersonalDetails? emp = null;
+    @if (ViewBag.UserRoles != null)
+    {
+        var empJson = TempData["EmployeeDetails"]?.ToString();
+        emp = Newtonsoft.Json.JsonConvert.DeserializeObject<PRASARNET.Areas.MasterMng.Models.EmployeePersonalDetails>(empJson);
+    }
+}
+
+<div class="content-wrapper">
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success mt-2">
+            @TempData["Success"]
+
+        </div>
+    }
+    else if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger mt-2">
+            @TempData["Error"]
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-12 col-md-4 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Search Employee</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-area="MasterMng" asp-controller="Employee" asp-action="getEmployeeDetails" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="EmployeeCode">Enter Employee code :</label>
+                            <input asp-for="EmployeeCode" class="form-control" placeholder="Enter code here.." />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8">
+            @if (ViewBag.AllRoles != null)
+            {
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Employee info</h4>
+                    </div>
+                    <div class="card-body">
+                        @if (emp != null)
+                        {
+                            <div class="mb-3">
+                                <p><strong>Employee Name:</strong>  @emp.FirstName</p>
+                                <p><strong>Employee Code:</strong>  @emp.EmployeeCode</p>
+                                <p><strong>Employee ID:</strong> @emp.EmployeeId</p>
+                                <p><strong>Employee Mobile Number:</strong> @emp.MobileNo</p>
+                                <p><strong>Employee Email:</strong> @emp.IT_NICEmail</p>
+                            </div>
+
+                            <div>
+                                <h5><strong>Assigned Roles:</strong></h5>
+                                @if (ViewBag.UserAssignedRoles != null)
+                                {
+                                    <ul class="list-group">
+                                        @foreach (var roleName in ViewBag.UserAssignedRoles)
+                                        {
+                                            <li class="list-group-item">@roleName</li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <p><strong>No Roles assigned yet</strong></p>
+
+                                }
+
+                            </div>
+                        }
+
+
+
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="col-12 col-md-6 py-3">
+            <div class="card shadow-sm">
+                @if (ViewBag.AllRoles != null)
+                {
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Manage roles</h4>
+                    </div>
+                    <div class="card-body">
+                        <h3>Manage Roles for @emp.FirstName</h3>
+                        <form asp-area="MasterMng" asp-controller="Employee" asp-action="UpdateRoles" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="employeeId" value="@ViewBag.EmployeeId" />
+                            @foreach (var role in ViewBag.AllRoles)
+                            {
+                                <label>
+                                    <input type="checkbox" name="selectedRoleIds" value="@role.RoleID"
+                                           @(ViewBag.UserRoles.Contains(role.RoleID) ? "checked" : "") />
+                                    @role.RoleName
+                                </label><br />
+                            }
+                            <button type="submit" class="btn btn-primary">Update Roles</button>
+                        </form>
+                    </div>
+                }
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "EMS Admin Profile";
+    Layout = "_LayoutEMS";
+}
+
+
+<div class="content-wrapper">
+
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-9 mb-4 mb-xl-0">
+                    <h3 class="font-weight-bold">Welcome Admin</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+
+            <h2>Add Column in LOC Form </h2>
+            <form method="post" asp-action="AddField">
+                <input type="text" name="fieldName" placeholder="Column Name" required />
+                <input type="text" name="Label" placeholder="Label" required />
+                <select id="fieldType" name="fieldType">
+                    <option value="text">Text</option>
+                    <option value="number">Number</option>
+                </select>
+                <label>
+                    <input type="checkbox" name="isRequired" value="checked" /> Required
+                </label>
+                <button type="submit" class="btn btn-primary">Add Column</button>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <h2>Sum Up Columns</h2>
+
+            <form method="post" asp-action="SumFields">
+                <label>Select Columns to Sum:</label><br>
+
+                @if (Model != null)
+                {
+                    foreach (var field in Model)
+                    {
+                        <input type="checkbox" name="selectedFields" value="@field.Id" /> @field.Label <br>
+                    }
+                }
+
+
+                <label>New Column Name:</label>
+                <input type="text" name="newColumnName" placeholder="e.g., Total Salary" required />
+
+                <button type="submit" class="btn btn-success">Sum Columns</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <h2>LOC Table</h2>
+
+            <!-- Display Existing Fields -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Field Name</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var field in Model)
+                        {
+                            <tr>
+                                <td>@field.Label</td>
+                                <td>@field.FieldType</td>
+                                <td>
+                                    <form method="post" asp-action="DeleteField">
+                                        <input type="hidden" name="fieldName" value="@field.FieldName" />
+                                        <button type="submit" class="btn btn-danger">Remove</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+</div>

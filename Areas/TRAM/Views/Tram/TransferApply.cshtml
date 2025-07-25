@@ -1,0 +1,447 @@
+﻿@model PRASARNET.Areas.TRAM.Models.TransferApplicationModel
+
+<link href="@Url.Content("~/css/vertical-layout-light/tram-application.css")" rel="stylesheet" />
+
+<div class="content-wrapper p-0">
+    <div class="row justify-content-center mt-3 mx-3">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-12 text-center p-0 mb-0">
+            <div class="card px-0 pt-2 pb-0 mt-0 mx-0">
+                <h2><strong class="text-primary">Apply Transfer</strong></h2>
+                <p>Fill all form field to go to next step</p>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form id="msform" method="post">
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active" id="account"><strong>Basic Information</strong></li>
+                                <li id="personal"><strong>Other Details</strong></li>
+                                <li id="payment"><strong>Preview</strong></li>
+                                <li id="confirm"><strong>Final Submit</strong></li>
+                            </ul>
+                            <!-- fieldsets -->
+                            <fieldset id="step1">
+                                <div class="form-card">
+                                    <h2 class="fs-title">Account Information</h2>
+                                    <input asp-for="Name_Emp " type="hidden" />
+                                    <input asp-for="CategoryName " type="hidden" />
+                                    <input asp-for="EmployeeCode" type="hidden" />
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Name/Employee Code/Category:</label>
+                                        <div class="col-sm-8">
+                                            <input asp-for="DisplayNameWithCodeAndCategory" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Date Of Birth:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="DOB" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Designation:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="DesignationName" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Contact No:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="Mobile" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">E-Mail:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="Email" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Present Place of Posting:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="PresentStationName" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Date of Joining at Present Station:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="DOJ_Present" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">No of Years served at Present Place of Posting:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="NoOfYearsServed" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Date of Super-Annuation:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="DateSuperannuation" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Is Present Place of Posting Difficult/Most Difficult:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="Tenure" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Tenure Completion Period:</label>
+                                                <div class="col-sm-8">
+                                                    <input value="@(Model.TenureYear.HasValue ? Model.TenureYear + " years" : "")" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Days Remaining to Complete Tenure:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="DaysCompletedOnTenure" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Days Exceeded after the Completion of Tenure:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="DaysExceeded" class="form-control" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label asp-for="Language" class="col-sm-4 col-form-label">Language Known:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="Language" class="form-control" />
+                                                    @*<span asp-validation-for="Language" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Application Forwarded to Whom:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="ForwardedTo" class="form-control" readonly />
+                                                    <small class="form-text text-primary">*Application would be forwarded to the HOO of the Station/office/Kendra.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-card">
+                                    <p class="fs-title h2 pb-2">Three Different Options Seeking for Transfer</p>
+                                    <div class="row">
+                                        <!-- Option 1 -->
+                                        <div class="col-4">
+                                            <div class="border p-3 mb-4 rounded">
+                                                <h5 class="legend-title mb-3">Option 1</h5>
+                                                <div class="form-group mb-3">
+                                                    <label for="SelectedState1" class="fieldlabels">State:</label>
+                                                    <select asp-for="SelectedState1" asp-items="Model.States" class="form-control">
+                                                        <option value="">-- Select State --</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="city1" class="fieldlabels">City:</label>
+                                                    <select asp-for="SelectedCity1" class="form-control">
+                                                        <option value="">-- Select City --</option>
+                                                    </select>
+                                                    @*<span asp-validation-for="SelectedCity1" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Option 2 -->
+                                        <div class="col-4">
+                                            <div class="border p-3 mb-4 rounded">
+                                                <h5 class="legend-title mb-3">Option 2</h5>
+                                                <div class="form-group mb-3">
+                                                    <label for="SelectedState2" class="fieldlabels">State:</label>
+                                                    <select asp-for="SelectedState2" asp-items="Model.States" class="form-control">
+                                                        <option value="">-- Select State --</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="city2" class="fieldlabels">City:</label>
+                                                    <select asp-for="SelectedCity2" class="form-control">
+                                                        <option value="">-- Select City --</option>
+                                                    </select>
+                                                    @*<span asp-validation-for="SelectedCity2" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Option 3 -->
+                                        <div class="col-4">
+                                            <div class="border p-3 mb-4 rounded">
+                                                <h5 class="legend-title mb-3">Option 3</h5>
+                                                <div class="form-group mb-3">
+                                                    <label for="SelectedState3" class="fieldlabels">State:</label>
+                                                    <select asp-for="SelectedState3" asp-items="Model.States" class="form-control">
+                                                        <option value="">-- Select State --</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="city3" class="fieldlabels">City:</label>
+                                                    <select asp-for="SelectedCity3" class="form-control">
+                                                        <option value="">-- Select City --</option>
+                                                    </select>
+                                                    @*<span asp-validation-for="SelectedCity3" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-card">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label asp-for="Hometown" class="col-sm-4 col-form-label">Hometown:</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="Hometown" class="form-control" />
+                                                    @*<span asp-validation-for="Hometown" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label asp-for="SelectedGroundId" class="col-sm-4 col-form-label">Ground on which Transfer Request is being Made</label>
+                                                <div class="col-sm-8">
+                                                    <select asp-for="SelectedGroundId" asp-items="Model.GroundsForTransfer" class="form-control"></select>
+                                                    @*<span asp-validation-for="SelectedGroundId" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label asp-for="Subject" class="col-sm-4 col-form-label">Subject(Atmost 200 Characters are allowed):</label>
+                                                <div class="col-sm-8">
+                                                    <textarea asp-for="Subject" class="form-control" rows="4" maxlength="200"></textarea>
+                                                    @*<span asp-validation-for="Subject" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label asp-for="Details" class="col-sm-4 col-form-label">Details(Atmost 3000 Characters are allowed):</label>
+                                                <div class="col-sm-8">
+                                                    <textarea asp-for="Details" class="form-control" rows="6" maxlength="3000"></textarea>
+                                                    @*<span asp-validation-for="Details" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group row">
+                                                <label asp-for="MedicalFacilitiesAvailable" class="col-sm-8 col-form-label">In case of medical ground of self or family member, please specify if medical facilities are available at place of posting or not:</label>
+                                                <div class="col-sm-4">
+                                                    <select asp-for="MedicalFacilitiesAvailable" asp-items="Model.YesNoOptions" class="form-control">
+                                                    </select>
+                                                    @*<span asp-validation-for="MedicalFacilitiesAvailable" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label asp-for="WantTransferBenefit" class="col-sm-6 col-form-label">Ready to forgo Transfer Benefits:</label>
+                                                <div class="col-sm-6">
+                                                    <select asp-for="WantTransferBenefit" asp-items="Model.YesNoOptions" class="form-control">
+                                                    </select>
+                                                    @*<span asp-validation-for="WantTransferBenefit" class="text-danger"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="button" name="next" class="next action-button" value="Save and Next" />
+                            </fieldset>
+
+                            <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <div id="trainingContainer">
+                                        <!-- Training form + list will load here -->
+                                    </div>
+                                    <div id="transferContainer" class="mt-4">
+                                        @{await Html.RenderPartialAsync("_TransferRecordsPartial", new List<TransferPostingModel>()); }
+                                    </div>
+                                    <div id="otherRecordsContainer" class="mt-4">
+                                        @{await Html.RenderPartialAsync("_TransferRecordsPartial", new List<TransferPostingModel>()); }
+                                    </div>
+                                    <div id="pwdContainer" class="mt-4">
+                                        @{await Html.RenderPartialAsync("_TransferRecordsPartial", new List<TransferPostingModel>()); }
+                                    </div>
+                                    <div id="UploadContainer" class="mt-4">
+                                        @{await Html.RenderPartialAsync("_TransferRecordsPartial", new List<TransferPostingModel>()); }
+                                    </div>
+
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                <input type="button" name="next" class="next action-button" id="btnSaveAndNext" value="Save and Next" />
+                            </fieldset>
+
+                            <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Preview</h2>
+
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+                            </fieldset>
+
+                            <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Success !</h2>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
+                                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5>You Have Successfully Applied</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Training Modal -->
+<div class="modal fade" id="addTrainingModal" tabindex="-1" role="dialog" aria-labelledby="addTrainingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="trainingModalForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTrainingModalLabel">Add Training</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <input name="CourseName" class="form-control" placeholder="Course Name" required />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input name="HostInstitute" class="form-control" placeholder="Host Institute" required />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input name="AnyRelevantInfo" class="form-control" placeholder="Info" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>From Date</label>
+                            <input name="FromDate" type="date" class="form-control" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>To Date</label>
+                            <input name="ToDate" type="date" class="form-control" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-sm">Submit Training</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Custom Application Script -->
+    <script src="@Url.Content("~/js/Tram-application.js")"></script>
+    <script>
+    function loadCities(stateId, targetDropdownId, cityId1, cityId2) {
+        $.ajax({
+            url: '@Url.Action("GetCities", "Tram", new { area = "TRAM" })',
+            type: 'GET',
+            data: { stateid: stateId, cityid1: cityId1, cityid2: cityId2 },
+            success: function (cities) {
+                var $dropdown = $('#' + targetDropdownId);
+                $dropdown.empty();
+                $dropdown.append($('<option>').val('').text('-- Select City --'));
+
+                $.each(cities, function (i, city) {
+                    $dropdown.append($('<option>').val(city.value).text(city.text));
+                });
+            }
+        });
+    }
+
+    $('#SelectedState1').change(function () {
+        var stateId = $(this).val();
+        loadCities(stateId, 'SelectedCity1', $('#SelectedCity2').val(), $('#SelectedCity3').val());
+    });
+
+    $('#SelectedState2').change(function () {
+        var stateId = $(this).val();
+        loadCities(stateId, 'SelectedCity2', $('#SelectedCity1').val(), $('#SelectedCity3').val());
+    });
+
+    $('#SelectedState3').change(function () {
+        var stateId = $(this).val();
+        loadCities(stateId, 'SelectedCity3', $('#SelectedCity1').val(), $('#SelectedCity2').val());
+    });
+
+    $(document).ready(function () {
+        if ($('#SelectedState1').val()) {
+            $('#SelectedState1').trigger('change');
+        }
+        if ($('#SelectedState2').val()) {
+            $('#SelectedState2').trigger('change');
+        }
+        if ($('#SelectedState3').val()) {
+            $('#SelectedState3').trigger('change');
+        }
+    });
+
+
+        $(function () {
+            $.get('/TRAM/Tram/GetTransferRecords', function (html) {
+                $('#transferContainer').html(html);
+            });
+        });
+
+    </script>
+}

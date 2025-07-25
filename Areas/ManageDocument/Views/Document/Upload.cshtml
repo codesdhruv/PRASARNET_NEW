@@ -1,0 +1,60 @@
+﻿
+@model PRASARNET.Areas.ManageDocument.Models.DocumentUploadViewModel
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <p class="h4">Upload Orders/Circulars</p>
+                </div>
+                <div class="card-body">
+                    <form asp-area="ManageDocument" asp-controller="Document" asp-action="Upload" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="SelectedCategory">Select Category</label>
+                            <select asp-for="SelectedCategory" asp-items="Model.UploadTypeList" class="form-control"></select>
+                            <span asp-validation-for="SelectedCategory" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Title">Title</label>
+                            <textarea asp-for="Title" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="DocumentDate">Document Date</label>
+                            <input asp-for="DocumentDate" class="form-control" type="date" max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="DocumentDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="OrderNumber">Order Number</label>
+                            <textarea asp-for="OrderNumber" class="form-control" rows="2"></textarea>
+                            <span asp-validation-for="OrderNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="FileNumber">File Number</label>
+                            <textarea asp-for="FileNumber" class="form-control" rows="2"></textarea>
+                            <span asp-validation-for="FileNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="UploadedFile">Upload (PDF only)</label>
+                            <input asp-for="UploadedFile" type="file" accept=".pdf" class="form-control" />
+                            <span asp-validation-for="UploadedFile" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">@Model.UploadButtonText</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

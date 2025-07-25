@@ -1,0 +1,89 @@
+﻿@model List<Permission>
+
+<h5>Permissions Assigned</h5>
+
+<form method="post" asp-area="MasterMng" asp-controller="RolePermission" asp-action="SubmitSelected">
+    <input type="hidden" name="roleID" value="@ViewBag.SelectedRoleID" />
+
+    <ul class="list-unstyled">
+        @foreach (var category in Model)
+        {
+            @Html.Partial("_CategoryPartial", category)
+        }
+    </ul>
+    <button type="submit" class="btn btn-primary mt-3" onclick="return confirm('Are you sure you want to update permission ?');" >Submit</button>
+</form>
+
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () 
+
+            document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll(".toggle-arrow").forEach(function (arrow) {
+                    arrow.addEventListener("click", function () {
+                        const nestedList = this.parentElement.querySelector("ul.nested");
+                        if (nestedList) {
+                            const isCollapsed = nestedList.style.display === "none";
+                            nestedList.style.display = isCollapsed ? "block" : "none";
+
+                            // Toggle classes using mdi-menu icons
+                            this.classList.remove(isCollapsed ? "mdi-menu-right" : "mdi-menu-down");
+                            this.classList.add(isCollapsed ? "mdi-menu-down" : "mdi-menu-right");
+                        }
+                    });
+                });
+            });
+
+
+
+            // Checkbox cascade logic
+            function updateParentCheckbox(childCheckbox) {
+                var li = childCheckbox.closest("li");
+                if (!li) return;
+
+                var parentLi = li.parentElement.closest("li");
+                if (!parentLi) return;
+
+                var parentCheckbox = parentLi.querySelector("> input[type='checkbox']");
+                if (!parentCheckbox) return;
+
+                var siblingCheckboxes = Array.from(parentLi.querySelectorAll("> ul > li > input[type='checkbox']"));
+
+                var allChecked = siblingCheckboxes.every(cb => cb.checked);
+                var noneChecked = siblingCheckboxes.every(cb => !cb.checked);
+
+                if (allChecked) {
+                    parentCheckbox.checked = true;
+                    parentCheckbox.indeterminate = false;
+                } else if (noneChecked) {
+                    parentCheckbox.checked = false;
+                    parentCheckbox.indeterminate = false;
+                } else {
+                    parentCheckbox.checked = false;
+                    parentCheckbox.indeterminate = true;
+                }
+
+                updateParentCheckbox(parentCheckbox);
+            }
+
+            document.querySelectorAll("input[type='checkbox']").forEach(function (checkbox) {
+                checkbox.addEventListener("change", function () {
+                    // Update children
+                    var li = this.closest("li");
+                    if (li) {
+                        var childCheckboxes = li.querySelectorAll("ul input[type='checkbox']");
+                        childCheckboxes.forEach(cb => {
+                            cb.checked = this.checked;
+                            cb.indeterminate = false;
+                        });
+                    }
+
+                    // Update parents
+                    updateParentCheckbox(this);
+                });
+            });
+        });
+    </script>
+}

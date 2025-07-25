@@ -1,0 +1,49 @@
+﻿@model QueryModel
+@using System.Data
+
+<div class="content-wrapper">
+
+
+    <h2>Run SELECT Query</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="SqlQuery">Enter SELECT query:</label>
+            <textarea class="form-control" name="SqlQuery" rows="4">@Model.SqlQuery</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Run Query</button>
+    </form>
+
+    @if (Model.Result != null)
+    {
+        <hr />
+        <form method="post" asp-action="DownloadCsv">
+            <input type="hidden" name="sqlQuery" value="@Model.SqlQuery" />
+            <button type="submit" class="btn btn-success">Download CSV</button>
+        </form>
+
+        <p class="h4 p-2 ">Results:</p>
+        <table class="table table-bordered table-sm mt-3">
+            <thead>
+                <tr>
+                    @foreach (DataColumn col in Model.Result.Columns)
+                    {
+                        <th>@col.ColumnName</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Result.Rows)
+                {
+                    <tr>
+                        @foreach (var item in row.ItemArray)
+                        {
+                            <td>@item</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>

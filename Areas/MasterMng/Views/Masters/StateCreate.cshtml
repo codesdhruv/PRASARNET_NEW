@@ -1,0 +1,86 @@
+﻿@model State
+
+<div class="content-wrapper p-4">
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white rounded-top-3">
+            <h2 class="mb-1">@((ViewContext.RouteData.Values["action"].ToString() == "StateCreate") ? "Insert new States/UT" : "Update " + Model.StateName )</h2>
+
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 mx-auto shadow-sm">
+                    <form asp-area="MasterMng" asp-controller="Masters" asp-action="@ViewContext.RouteData.Values["action"]" method="post">
+                        @*asp-action="StateView"*@
+
+                        <div class="form-group">
+                            <label for="StateID">State ID</label>
+                            @if (ViewContext.RouteData.Values["action"].ToString() == "StateEdit")
+                            {
+                                <input type="text" asp-for="StateID" class="form-control form-control-sm" id="StateID" value="@Model.StateID" readonly />
+                            }
+                            else
+                            {
+                                <input asp-for="StateID" class="form-control form-control-sm" id="StateID" />
+                            }
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="LGD_Code">LGD Code</label>
+                            <input asp-for="LGD_Code" class="form-control form-control-sm" id="LGD_Code" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="StateName">State Name</label>
+                            <input asp-for="StateName" class="form-control form-control-sm" id="StateName" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="IsState">Type</label>
+                            <select asp-for="IsState" class="form-control form-control-sm" id="IsState" required>
+                                <option value="true">State</option>
+                                <option value="false">UT</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ZoneID">Zone</label>
+                            <input asp-for="ZoneID" class="form-control form-control-sm" id="ZoneID" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="CencusCode_2001">Census Code 2001</label>
+                            <input asp-for="CencusCode_2001" class="form-control form-control-sm" id="CencusCode_2001" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="CencusCode_2011">Census Code 2011</label>
+                            <input asp-for="CencusCode_2011" class="form-control form-control-sm" id="CencusCode_2011" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="IsActive">Active</label>
+                            <input type="checkbox" asp-for="IsActive" id="IsActive" />
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center my-3">
+                            <button type="submit" class="btn btn-success">
+                                Save
+                            </button>
+                            <button type="reset" class="btn btn-primary">
+                                Reset
+                            </button>
+                            <a href="/@ViewContext.RouteData.Values["area"]/@ViewContext.RouteData.Values["controller"]/StateView"
+                               class="btn btn-danger"> Back
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+          
+        </div>
+    </div>
+
+</div>

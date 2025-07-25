@@ -1,0 +1,148 @@
+﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Main Dashboard</span>
+            </a>
+        </li>
+
+        @if (User.HasClaim("permission", "Prasar Net"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#PrasarNetMenu" aria-expanded="false" aria-controls="PrasarNetMenu">
+                    <i class="icon-grid menu-icon"></i>
+                    <span class="menu-title">Prasar Net Portal</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="PrasarNetMenu">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="Dashboard" asp-action="Indexx">Dashboard</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action="">Orders/Circulars</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action="">Policies</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action="">RN/Frequency Schedule</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action="">Upload Orders/Circulars</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action="">Upload Policies</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action="">Reports</a></li>
+                    </ul>
+                </div>
+            </li>
+        }
+
+
+
+        @*<li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-currency-inr menu-icon"></i>
+                    <span class="menu-title">EMS Portal</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" asp-controller="EmsAdmin" asp-action="Index">Admin</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-controller="EmsDdo" asp-action="Index">DDO</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-controller="EmsOperator" asp-action="Index">Operator</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-controller="EmsManagement" asp-action="Index">Management</a></li>
+
+                    </ul>
+                </div>
+            </li>*@
+
+        @if (User.HasClaim("permission", "TRAM"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#TRAMMenu" aria-expanded="false" aria-controls="TRAMMenu">
+                    <i class="mdi mdi-account-card-details menu-icon"></i>
+                    <span class="menu-title">TRAM Portal</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="TRAMMenu">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" asp-area="TRAM" asp-controller="" asp-action="">Apply/View Transfers</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="TRAM" asp-controller="" asp-action="">Handle Transfer Request</a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="TRAM" asp-controller="" asp-action="">Actioned Application</a></li>
+                    </ul>
+                </div>
+            </li>
+        }
+
+        @if (User.HasClaim("permission", "HRIS"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#HRISMenu" aria-expanded="false" aria-controls="HRISMenu">
+                    <i class="mdi mdi-human-male-female menu-icon"></i>
+                    <span class="menu-title">HRIS Portal</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="HRISMenu">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Dashboard</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Search Employee</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Employee Basic Details</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Employee Advance Details</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Sparrow Workflow Creation</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Sanctioned Posts</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Existing internet Setup & Requirements</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Employee document Repository</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">AIPR status for the year2025 in SPARROW</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Add retired Employee details</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Relieve/resignation</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Joining/Promotion</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">PWD Employee type od disability</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Gem user details</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Employee work profile details</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">PB Employee medical expenditure FY 2020-21, 2021-22, 2022-23</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Official Email ID creation</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Change Password</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Directory</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">Update Station contact details</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">List of transferred/retired Employee</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">IT assets Manage</a> </li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="HRIS" asp-controller="" asp-action="">OEIT</a> </li>
+                    </ul>
+                </div>
+            </li>
+        }
+
+        @if (User.HasClaim("permission", "Master Management"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#MasterMng" aria-expanded="false" aria-controls="MasterMng">
+                    <i class="mdi mdi-currency-inr menu-icon"></i>
+                    <span>Master Management</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="MasterMng">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="MasterMng" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="MasterMng" asp-controller="RolePermission" asp-action="Index">Role Permissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="MasterMng" asp-controller="Employee" asp-action="Index">Manage Employee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="MasterMng" asp-controller="Stations" asp-action="Index">Manage Stations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="MasterMng" asp-controller="Cities" asp-action="Index">Manage Cities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="MasterMng" asp-controller="Masters" asp-action="StateView">Manage States</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="MasterMng" asp-controller="Role" asp-action="Index">Manage Roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="MasterMng" asp-controller="Dashboard" asp-action="TreeView">Manage Permissions</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        }
+
+    </ul>
+</nav>
+

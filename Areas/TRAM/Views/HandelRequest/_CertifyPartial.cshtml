@@ -1,0 +1,32 @@
+﻿@model PRASARNET.Areas.TRAM.Models.CertificationViewModel
+
+
+<div class="modal fade" id="certifyModal" tabindex="-1" aria-labelledby="certifyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form asp-action="CertifyApplication" method="post">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Certification by Head of Office</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" name="ApplicationNo" value="@Model.ApplicationNo" />
+
+                    <p><strong>i.</strong> Certified that all the information given by the official in the application form have been verified from service records and are correct.</p>
+                    <p><strong>ii.</strong> The request made by the official is genuine and recommended.</p>
+
+                    <div class="mb-3">
+                        <label class="form-label text-danger"><strong>Remarks by HOO (if any)</strong></label>
+                        <textarea name="Remarks" class="form-control" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" onclick="return confirm('Once certified, changes are not allowed. Continue?')">Certify</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

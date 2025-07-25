@@ -1,0 +1,65 @@
+﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Main Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" asp-area="PrasarNet" asp-controller="Dashboard" asp-action="Index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Prasar Net Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#documentsMenu" aria-expanded="false" aria-controls="documentsMenu">
+                <i class="mdi mdi-database menu-icon"></i>
+                <span class="menu-title">Documents</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="documentsMenu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action=""> Orders/Circulars </a></li>
+                    <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action=""> Policies </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#miscMenu" aria-expanded="false" aria-controls="miscMenu">
+                <i class="mdi mdi-database menu-icon"></i>
+                <span class="menu-title">Miscelleanous</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="miscMenu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action=""> RN/Frequency Schedule </a></li>
+                </ul>
+            </div>
+        </li>
+
+        @if (User.HasClaim("permission", "Upload Document"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#uploadMenu" aria-expanded="false" aria-controls="uploadMenu">
+                    <i class="mdi mdi-database menu-icon"></i>
+                    <span class="menu-title">Upload</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="uploadMenu">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="Document" asp-action="Upload"> Orders/Circulars </a></li>
+                        <li class="nav-item"> <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action=""> Photos </a></li>
+                    </ul>
+                </div>
+            </li>
+      }
+
+        <li class="nav-item">
+            <a class="nav-link" asp-area="PrasarNet" asp-controller="" asp-action="">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Reports</span>
+            </a>
+        </li>
+    </ul>
+</nav>

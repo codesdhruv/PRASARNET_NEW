@@ -1,0 +1,36 @@
+﻿@model List<TrackApplicationViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Dealing Section/Station/Officer</th>
+                <th>Received on</th>
+                <th>Action Taken</th>
+                <th>Remarks</th>
+                <th>Supporting File</th>
+                <th>FileName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model[i].DealingOffc</td>
+                    <td>@Model[i].AppSubmitOn</td>
+                    <td>@Model[i].Status</td>
+                    <td>@Model[i].Fwd_clsd_Remarks</td>
+                    <td>@Model[i].Fwd_clsd_File</td>
+                    <td>@Model[i].FileName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-info">No tracking details found for this application.</p>
+}

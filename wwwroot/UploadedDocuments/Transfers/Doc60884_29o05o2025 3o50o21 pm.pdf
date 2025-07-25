@@ -1,0 +1,1312 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Welcome to PrasarNet
+</title><link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png" /><link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png" /><link rel="icon" type="image/png" sizes="192x192" href="images/android-icon-192x192.png" /><link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" /><link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png" /><link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" /><link rel="manifest" href="images/manifest.json" /><meta name="msapplication-TileColor" content="#ffffff" /><meta name="msapplication-TileImage" content="/ms-icon-144x144.png" /><meta name="theme-color" content="#ffffff" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="style/responsive.css" type="text/css" media="screen" />
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script>
+    <style type="text/css">
+        .blink_me {
+            animation: blinker 4s linear infinite;
+        }
+
+        html { /* use on dashboard for showing the Message of Management i.e. CEO, DG:DD, DG:AIR ..... Added on 08-Aug-2018*/
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after { /* use on dashboard for showing the Message of Management i.e. CEO, DG:DD, DG:AIR ..... Added on 08-Aug-2018*/
+            box-sizing: border-box;
+        }
+
+        .card { /* use on dashboard for showing the Message of Management i.e. CEO, DG:DD, DG:AIR ..... Added on 08-Aug-2018*/
+            box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .container11 { /* use on dashboard for showing the Message of Management i.e. CEO, DG:DD, DG:AIR ..... Added on 08-Aug-2018*/
+            padding: 0 16px;
+        }
+
+            .container11::after, .row::after { /* use on dashboard for showing the Message of Management i.e. CEO, DG:DD, DG:AIR ..... Added on 08-Aug-2018*/
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+        .title { /* use on dashboard for showing the Message of Management i.e. CEO, DG:DD, DG:AIR ..... Added on 08-Aug-2018*/
+            color: grey;
+        }
+
+
+
+        .groucho {
+            position: relative;
+            font-family: 'Sanchez', serif;
+            font-size: $base-font-size;
+            line-height: $base-line-height;
+            footer;
+
+        {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 0.6em;
+            font-weight: 700;
+            color: darken($white, 15%);
+            float: right;
+            &:before;
+
+        {
+            content: '\2015';
+        }
+
+        }
+
+        &:after {
+            content: '\201D';
+            position: Relative;
+            top: 0em;
+            right: 0;
+            font-size: 6em;
+            font-style: italic;
+            color: darken($white, 7%);
+            z-index: -1;
+        }
+
+        }
+
+        .divforwhatsnew1 {
+            background-color: #ECF0F1;
+            height: 525px;
+            width: 100%;
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+
+        .height1 {
+            height: 600px;
+        }
+
+        .grad2 {
+            background: linear-gradient(to right, #CACFD2, #E67E22);
+            -webkit-radial-gradient;
+        }
+
+        .scrollnew {
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+
+        .profilescroll {
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+
+        .toc {
+            margin: 0;
+        }
+
+        .gradquote {
+            background: linear-gradient(to right, #CACFD2, #E67E22);
+            -webkit-radial-gradient;
+        }
+
+        .gradtab {
+            background: linear-gradient(to right, orange, #ECF0F1);
+            background: radial-gradient(orange, #ECF0F1);
+            -webkit-radial-gradient;
+        }
+
+        .gradtab1 {
+            background: linear-gradient(to left, #FFAC49, #ECF0F1);
+            -webkit-radial-gradient;
+        }
+
+        .gradtab12 {
+            /*background: linear-gradient(to right, #FFAC49, #ECF0F1);*/
+            background: radial-gradient(#ECF0F1,#FFAC49);
+            -webkit-radial-gradient;
+        }
+
+        .gradh {
+            background: radial-gradient(orange, #F4F6F7);
+        }
+
+        .gradformessage {
+            background: linear-gradient(to bottom, #FAD7A0, #EAFAF1);
+        }
+
+        .grad4 {
+            background: radial-gradient(#CACFD2, #E67E22);
+            -webkit-radial-gradient;
+        }
+    </style>
+    <script type='text/javascript'>
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+        function clearmodal() {
+            $('#loginModal4').on('hide.bs.modal', function () {
+                var emp = document.getElementById("txtemployee");
+                var grd = document.getElementById("divgrd");
+                //                var rev = document.getElementById("RegularExpressionValidator1");
+                //                var rfv = document.getElementById("RequiredFieldValidator1");
+                emp.value = "";
+
+
+                if ($("#divgrd").is(':visible')) {
+                    //                    alert("Room 1 is filled.");
+                    grd.style.display = "none";
+                }
+            })
+        }
+        function popupfunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+        function popupfunction2() {
+            var popup = document.getElementById("myPopup2");
+            popup.classList.toggle("show");
+        }
+        /* Begin jQuery */;
+        (function ($) {
+
+            $(window).scroll(function (e) {
+                if ($(window).scrollTop() >= $("header").height() + 30) {
+                    $(".sticky").addClass("fixed");
+                    $(".content").addClass("margin");
+
+                } else {
+                    $(".sticky").removeClass("fixed");
+                    $(".content").removeClass("margin");
+                }
+                e.stopPropagation();
+            });
+
+            // DOM ready
+
+
+        })(jQuery);
+
+    </script>
+    <style type="text/css">
+        .style1 {
+            width: 14%;
+        }
+
+        #block_container {
+            text-align: center;
+        }
+
+            #block_container > div {
+                display: inline-block;
+                vertical-align: middle;
+            }
+    </style>
+</head>
+<body class="gradbody"> 
+    <form method="post" action="./DashBoardNew.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="Form1" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=hYoF4GcA3tw_phtiBqMigzksCb5VC9y4yHbihkrjmVfjUoXswOqwrBO1DUvlnJiBZU1-d_C_fc0aLa7p2hEkAa_6x2-kWjkFa2fE03B5jio1&amp;t=638286275654891005" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=vV5qjUMgiLuIWVkUjSkuuJBqUnULquCaTVC2VrY0Jv2upXNtqjNc9mgEOKDUoV49MEyIZcOUmDqV9WH09wpPNSVle0DPJoMUbFzH5W7Juzk5pfT7yilrK8xPEBqw8zfic2j8Mjc_AqU5T4yw9cA5ms6f95oeMDQ4o5SyRGeerR81&amp;t=ffffffffa57c377b" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ZOxIaMO5zbg_oQxJm0SDSVtAvH63yk753bnFL9-XVOVQnO8quB_uqgArayDR1SFJY2n3uWHP0e7Y2ab92u8lnQXVXN-DywwID9J8cI5e_ckWpbhcFF9q_mbO2WNJ9Pz06bspdZdeZq_h9O0VfxK7o88HD-wg7uCw7O33dgG4nH2VJZvLlWiIq0-s7Heg40850&amp;t=ffffffffacea8b1a" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=pN5UyNUtGL_FOd3y0GuNhFQ_o33gbo81wLDMvdgMcoE6zkX_BeNV-YltPdlaw1LL3ycgCkGWw5deGpY8GKRmm-GBJPnyVfIzL1D0rkagXiV7OWyyIRVEiOqkZdraE_Ji9O8QuNmwXlfy1ASoNq70I2-pb-tB1LiMcgYlmTjpJqlfHcR8y1npD6xodUJ1MELN0&amp;t=ffffffffacea8b1a" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B5872E05" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="uY+4iZm8nug7LwS8JhZsEVF9Pd+VMl5/uqfv3qOXvLUXwEHImWAMNKJmvODuTVsHLHn82Zd4uAI3g4VKuHDV5USy4OrC2t60NJlDRuZrNJKwTZ4IlCOE8Bz+cPWryLs6YVrYyQLiHO3titqmdRBS/ZlEnJ1sRjYKCJdugNkZDyZKLE918ygjavZLgt7SD8Pf/vjf3zgfAMz9ooHjtHEex/AZYQ3j8t+xSPBBmwNAVTi9bdvx6RRjVzBBz/Cobq0Ok49kk/bSBV2hf27yK1y5qwgod5guWtBE8CiAdl3CMpXTeteRzOFzKwaLGAhtUlCVaAW9tWos9AICpDInlDzNJSqFXLp8JcbHiZQuh4DlZ+Xi3ECVcAdhQu0LSPoZd3hfDhtoWe9Whp3Ni2hczHq0oqnI3vDGSkOc1gUt/1llXPrD3bvza2h2JfWZwOMcnfoYuDgvfc8i9iguE9brf5VEgFZSiHKGzmP0vy10XIHKjftIPRZnJFYNyh9gZCVHqRyTJf7agRkvQ+VV20I+65jblYEC/EKFNUUOaY13k2WCEtGIEm2CvczPjxghBe+nKnirGxSIO/hPXqXcuZw7bCgMM7mA3Cn5O5zPWRT7C/f4dg3sq+1BcHUzfNJFgwj7PD2JOTVst9NMJjS06doRxT4RHyojCnG/taSABcfTem3Yi/rA/eGQRuhTWsofK/6ar8PSb9XavBYmrAwOr1A4yjgKgSkju8kGGPiKnx/hyPMmOh3l+n6GCiq5ndHrGLUkF5XMy1qtxH8JAb4+COTNf2+GoAMYmW0F7247UEwO+85jviU=" />
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'Form1', ['tctl00$ContentSection$UpdatePanel6','ContentSection_UpdatePanel6','tctl00$ContentSection$UpdatePanel5','ContentSection_UpdatePanel5','tctl00$ContentSection$UpdatePanel2','ContentSection_UpdatePanel2'], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+    
+    <div id="divmenu">
+        
+    
+    <div class="row gradhead" style="margin: auto">
+        <div class="col-xs-3 col-lg-3 text-center" style="padding-left: 25px; padding-top: 12px; padding-bottom: 5px">
+            
+            <img id="MenuContent_Image1" class="img-responsive pull-left  img-fluid" src="images/Emblem.png" align="left" style="height:90%;width:70px;" />
+            
+        </div>
+        <div class="col-xs-6 col-lg-6 text-center" style="padding-top: 14px; padding-bottom: 5px">
+            <div id="block_container">
+
+                <div>
+                    <span id="MenuContent_Label10" class="fontheader" style="color:Blue;font-weight:bold;">PrasarNet</span>
+
+                    <br />
+
+                    <span id="MenuContent_Label12" class="fontheader" style="color:Blue;font-weight:bold;">(प्रसार नेट)</span>
+
+                </div>
+                <div>
+                    <img id="MenuContent_Image7" class="img-responsive" align="center" src="images/Azadi.png" style="height:100%;width:100px;" />
+                </div>
+            </div>
+
+            <br />
+            <span id="MenuContent_Label14" class="fontheader1" style="color:Blue;font-weight:normal;"> An Intranet for Prasar Bharati Employees</span>
+
+        </div>
+        <div class="col-xs-3 col-lg-3 text-center" style="padding-right: 25px; padding-top: 12px; padding-bottom: 5px">
+            <img id="MenuContent_Image8" class="img-responsive pull-right" src="images/pblogo.png" align="right" style="height:100%;width:123px;" />
+        </div>
+
+    </div>
+    <div class="row" style="margin: auto">
+        <div id="MenuContent_empmenu" class="sticky">
+            <nav class="navbar navbar-default row-no-padding">
+                
+                <div class="navbar-header grad3">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    
+                </div>
+                
+
+                <div class="collapse navbar-collapse ex3 navpriorscrolling navigation grad3 wid100menu" id="myNavbar1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="DashBoardNew.aspx" style="color: Black; font-size: 11.5px; font-weight: bold">
+                            <span class="glyphicon glyphicon-dashboard"></span>&nbsp;DashBoard</a></li>
+                        
+                        
+                        
+
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: Black; font-size: 11.5px; font-weight: bold"><span class="glyphicon glyphicon-file"></span>
+                            &nbsp;Documents <span class="caret"></span></a>
+                            <ul class="dropdown-menu grad3">
+
+                                <li><a href="OrdernCircular.aspx"><span style="color: #000000">Orders/Circulars</span></a></li>
+                                <li><a href="Policies.aspx"><span style="color: #000000">Policies</span></a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: Black; font-size: 11.5px; font-weight: bold"><span class="glyphicon glyphicon-wrench"></span>
+                            &nbsp;Trainings <span class="caret"></span></a>
+                            <ul class="dropdown-menu grad3">
+                                
+                                <li><a href="#"><span style="color: #000000">Training Materials/Videos</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="#" style="color: Black; font-size: 11.5px; font-weight: bold"><span
+                            class="glyphicon glyphicon-calendar"></span>&nbsp;Events and Awards</a></li>
+                        
+                        
+                        
+                        <li><a href="utilityDownload.aspx" style="color: Black; font-size: 11.5px; font-weight: bold">
+                            <span class="glyphicon glyphicon-download-alt"></span>&nbsp;Downloads</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: Black; font-size: 11.5px; font-weight: bold"><span class="glyphicon glyphicon-cog"></span>
+                            &nbsp;Miscellaneous<span class="caret"></span></a>
+                            <ul class="dropdown-menu grad3">
+                                <li><a href="RNFrequencySchedule.aspx"><span style="color: #000000">RN/Frequency Schedule</span></a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: Black; font-size: 11.5px; font-weight: bold"><span class="glyphicon glyphicon-user"></span>
+                            &nbsp;My Account <span class="caret"></span></a>
+                            <ul class="dropdown-menu grad3">
+                                <li><a href="myprofile.aspx"><span style="color: #000000">My Profile</span></a></li>
+                                <li><a href="ChangePassword.aspx"><span style="color: #000000">Change Password</span></a></li>
+                                <li><a href="Logout.aspx" id="MenuContent_lgout" style="color: #000000">LogOut</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        
+        
+    </div>
+    </span>
+
+    </div>
+    <div id="divcont">
+        
+    <div class="content gradbody">
+        <div class="row" style="padding: 10px 0px 0px 0px; margin: auto">
+            <div class="col-lg-12 col-md-12 sm-12 xs-12" style="padding-left: 25px; padding-right: 35px;">
+                <span id="ContentSection_Label16" class="font2 pull-right captalisefirstLetter" style="color:Black;font-weight:bold;">ASHISH  KUMAR - 1000600</span>
+                <span id="ContentSection_Label17" class="font pull-right" style="color:Black;font-weight:bold;"><span>&nbsp;</span></span>
+                <span id="ContentSection_Label15" class="font pull-right" style="color:Black;font-weight:bold;">Welcome</span>
+            </div>
+        </div>
+        <div class="row container-fluid" style="padding: 10px 0px 0px 0px; margin: auto;">
+            
+            <div class="col-lg-12 col-md-12 sm-12 xs-12" style="padding: 0px 0px 0px 0px;">
+                <div>
+                    <table class="table">
+                        <tr class="gradquote">
+                            <td align="center">
+                                
+                                <span id="ContentSection_lblquote" class="toc groucho font2" style="color:#1B2631;font-style:italic;font-weight: bold">Thousands of candles can be lighted from a single candle, and the life of the candle will not be shortened. Happiness never decreases by being shared.</span>
+                                <br />
+                                -
+                                <span id="ContentSection_lblauthor" class="toc groucho font" style="color:Black;font-weight:bold;font-style:italic;">Gautama Buddha</span>
+                                -
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+
+        
+        <div class="row" style="padding-top: 10px; padding-bottom: 10px; margin: auto">
+            <div class="col-md-10 col-lg-10 col-sm-10" style="padding-left: 30px" align="left">
+                <img id="ContentSection_imgcw" Class="image-responsive" src="images/iconforCovid.png" align="middle" style="height:100%;width:35px;" />
+                <a id="ContentSection_lnkcoronawarriors" class="font2 blink_me" href="javascript:__doPostBack(&#39;ctl00$ContentSection$lnkcoronawarriors&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:underline;">  Click here to see Covid-19 Updates</a>
+            </div>
+        </div>
+        <div id="ContentSection_divcoronavac" class="row" style="padding-top: 10px; padding-bottom: 10px; margin: auto">
+            <div class="col-md-10 col-lg-10 col-sm-10" style="padding-left: 30px" align="left">
+                <a id="ContentSection_LinkButton3" class="font2 blink_me" href="javascript:__doPostBack(&#39;ctl00$ContentSection$LinkButton3&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:underline;">  Click here to fill the Covid-19 Vaccination Details</a>
+            </div>
+        </div>
+        
+        
+        <div style="border: medium ridge #000000; padding-top: 10px; padding-bottom: 10px; margin: auto 30px auto 30px">
+            <div align="left" style="padding-left: 20px; padding-bottom: 10px">
+                <span id="ContentSection_lblquicklinks" class="font2" style="color:Black;font-weight:bold;text-decoration:underline;">Quick Links: </span>
+                <div class="scrollnew">
+
+                    <div class="row" style="padding-top: 10px; padding-bottom: 5px; margin: auto 5px auto 5px">
+
+                        <div class="col-md-3 col-lg-3 col-sm-3" style="padding-left: 0px; padding-bottom: 10px" align="center">
+                            
+
+
+                            <a id="ContentSection_HyperLink2" title="Navigate to Members in Association" class="btn grad4" href="https://hris.prasarbharati.org/it_associationdetails.aspx" target="_blank" style="display:inline-block;color:Black;border-color:Black;border-width:2px;border-style:Ridge;font-weight:bold;width:250px;">Members in Association</a>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-sm-3" style="padding-left: 0; padding-bottom: 10px" align="center">
+                            <a id="ContentSection_LinkButton7" class="btn grad4" href="javascript:__doPostBack(&#39;ctl00$ContentSection$LinkButton7&#39;,&#39;&#39;)" style="display:inline-block;color:Black;border-color:Black;border-width:2px;border-style:Ridge;font-weight:bold;width:250px;">Frequency Schedule</a>
+
+
+                        </div>
+
+                        <div class="col-md-3 col-lg-3 col-sm-3" style="padding-left: 0px; padding-bottom: 10px" align="center">
+                            
+                            <div id="ContentSection_divstnsecdirectory">
+                                <a id="ContentSection_lnkstn_sec_directory" class="btn grad4" href="javascript:__doPostBack(&#39;ctl00$ContentSection$lnkstn_sec_directory&#39;,&#39;&#39;)" style="display:inline-block;color:Black;border-color:Black;border-width:2px;border-style:Ridge;font-weight:bold;width:250px;">Station/Section Directory</a>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-sm-3" style="padding-left: 0px; padding-bottom: 10px" align="center">
+
+                            <a id="ContentSection_LinkButton5" class="btn grad4" href="javascript:__doPostBack(&#39;ctl00$ContentSection$LinkButton5&#39;,&#39;&#39;)" style="display:inline-block;color:Black;border-color:Black;border-width:2px;border-style:Ridge;font-weight:bold;width:250px;">OSD(PB) Funds Release</a>
+
+
+
+                        </div>
+                    </div>
+                    
+                    <div id="ContentSection_divemppanel" class="row" style="padding-top: 5px; padding-bottom: 10px; margin: auto 5px auto 5px">
+                        
+                        <div id="ContentSection_div5" class="col-lg-3 " style="padding-left: 0px; padding-bottom: 10px;" align="center">
+
+
+                            <a id="ContentSection_lnktransferApplication" title="Transfer Request Application Module" class="btn grad4" href="javascript:__doPostBack(&#39;ctl00$ContentSection$lnktransferApplication&#39;,&#39;&#39;)" style="display:inline-block;color:Black;border-color:Black;border-width:2px;border-style:Ridge;font-weight:bold;width:250px;">TRAM</a>
+
+
+
+                        </div>
+
+                        <div id="ContentSection_divpbhs" class="col-lg-3" style="padding-left: 0px; padding-bottom: 10px" align="center">
+
+                            <a id="ContentSection_lnkpbhs" class="btn grad4" href="javascript:__doPostBack(&#39;ctl00$ContentSection$lnkpbhs&#39;,&#39;&#39;)" style="display:inline-block;color:Black;border-color:Black;border-width:2px;border-style:Ridge;font-weight:bold;width:250px;">PBHS Card</a>
+
+
+                        </div>
+                        
+                         <div id="ContentSection_div7" class="col-lg-3" style="padding-left: 0px; padding-bottom: 10px" align="center">
+
+                            <a id="ContentSection_lnkemailmig" class="btn grad4" href="javascript:__doPostBack(&#39;ctl00$ContentSection$lnkemailmig&#39;,&#39;&#39;)" style="display:inline-block;color:Black;border-color:Black;border-width:2px;border-style:Ridge;font-weight:bold;width:250px;">Check Email Migration Status</a>
+
+
+                        </div>
+                        
+                        <div id="ContentSection_div4" class="col-lg-3" style="padding-left: 0px; padding-bottom: 10px" align="center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding: 0px 10px 10px 10px; margin: auto">
+
+
+            <div class="col-md-10 col-lg-10 col-sm-10" style="padding-left: 20px">
+                <div align="center" style="padding-top: 10px">
+                    <div id="ContentSection_divforwhatsnew" class="divwidth1 divforwhatsnew1 gradtab1 height1" style="border: thin solid #000066; padding-top: 5px">
+                        <div align="center" class="whatnewheading" style="height: 30px; padding-top: 5px; padding-bottom: 3px">
+                            <span id="ContentSection_Label6" class="font2" style="color:Black;font-weight:bold;font-family: Sans-Serif, Arial">What's New</span>
+                        </div>
+                        <div align="right" style="padding-right: 10px;">
+                            <a id="ContentSection_LinkButton4" title="All Orders/Circulars" class="font2" href="javascript:__doPostBack(&#39;ctl00$ContentSection$LinkButton4&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">
+                                ...more</a>
+                        </div>
+                        <div style="padding-top: 7px">
+                            <div>
+	<table cellspacing="0" rules="all" id="ContentSection_grdwhatsnew" style="color:#333333;border-width:2px;border-style:Solid;width:98%;border-collapse:collapse;">
+		<tr class="centerHeaderText font" align="center" valign="middle" style="color:Black;background-color:#E67E22;font-weight:bold;">
+			<th align="center" scope="col">S.No.</th><th scope="col">Uploaded By</th><th align="center" scope="col">Title/Subject</th><th scope="col">Order-No.</th><th scope="col">Dated</th>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_0">1</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_0" class="fontingrid" style="font-weight:bold;font-style:italic;">Akashvani & Doordarshan - MUMBAI, ADG(E)-(WZ) - NBU/Off.</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_0" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl03$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">ass</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_0" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_0" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_0" class="fontingrid" style="font-weight:bold;font-style:italic;">21-Jun-2024</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_0" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_0" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_0" class="fontingrid" style="font-weight:bold;font-style:italic;">Transfer Orders</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_0" class="fontingrid" style="color:Black;">aaaa</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_0" class="fontingrid" style="color:Black;">01-Jun-2024</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_1">2</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_1" class="fontingrid" style="font-weight:bold;font-style:italic;">Akashvani & Doordarshan - MUMBAI, ADG(E)-(WZ) - NBU/Off.</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_1" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl04$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">ass</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_1" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_1" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_1" class="fontingrid" style="font-weight:bold;font-style:italic;">21-Jun-2024</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_1" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_1" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_1" class="fontingrid" style="font-weight:bold;font-style:italic;">Circulars</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_1" class="fontingrid" style="color:Black;">aaaa</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_1" class="fontingrid" style="color:Black;">01-Jun-2024</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_2">3</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_2" class="fontingrid" style="font-weight:bold;font-style:italic;">Akashvani & Doordarshan - MUMBAI, ADG(E)-(WZ) - NBU/Off.</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_2" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl05$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">hhh</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_2" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_2" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_2" class="fontingrid" style="font-weight:bold;font-style:italic;">21-Jun-2024</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_2" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_2" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_2" class="fontingrid" style="font-weight:bold;font-style:italic;">Transfer Orders</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_2" class="fontingrid" style="color:Black;">test</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_2" class="fontingrid" style="color:Black;">01-Jun-2024</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_3">4</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_3" class="fontingrid" style="font-weight:bold;font-style:italic;">Akashvani & Doordarshan - MUMBAI, ADG(E)-(WZ) - NBU/Off.</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_3" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl06$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">hhh</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_3" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_3" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_3" class="fontingrid" style="font-weight:bold;font-style:italic;">21-Jun-2024</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_3" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_3" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_3" class="fontingrid" style="font-weight:bold;font-style:italic;">Transfer Orders</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_3" class="fontingrid" style="color:Black;">test</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_3" class="fontingrid" style="color:Black;">01-Jun-2024</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_4">5</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_4" class="fontingrid" style="font-weight:bold;font-style:italic;">Akashvani - MUMBAI,CSU - MKTG.</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_4" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl07$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">CSU RN DATED – 02-11-2023</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_4" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_4" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_4" class="fontingrid" style="font-weight:bold;font-style:italic;">02-Nov-2023</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_4" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_4" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_4" class="fontingrid" style="font-weight:bold;font-style:italic;">RN Messages</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_4" class="fontingrid" style="color:Black;">CSU RN DATED – 02-11-2023</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_4" class="fontingrid" style="color:Black;">02-Nov-2023</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_5">6</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_5" class="fontingrid" style="font-weight:bold;font-style:italic;">PBSect.-OSD(PB)</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_5" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl08$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">FUND RELEASE UNDER BIND SCHEME TO THE AIR STATIONS (Lucknow, New Delhi and Chennai)</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_5" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_5" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_5" class="fontingrid" style="font-weight:bold;font-style:italic;">02-Nov-2023</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_5" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_5" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_5" class="fontingrid" style="font-weight:bold;font-style:italic;">Circulars</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_5" class="fontingrid" style="color:Black;">PB/B-1011/3(3) AIR/CSS/BIND/2023/RELEASE</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_5" class="fontingrid" style="color:Black;">02-Nov-2023</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_6">7</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_6" class="fontingrid" style="font-weight:bold;font-style:italic;">Akashvani & Doordarshan - NABM(T)-DELHI - NBU/Off.</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_6" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl09$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">Call letter for  training program on “NLE Adobe CC" for AE/SEA/EA/PEX/TREX (Akashvani/Doordarshan) scheduled from 20.11.2023 to 24.11.2023 at NABM Delhi.</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_6" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_6" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_6" class="fontingrid" style="font-weight:bold;font-style:italic;">02-Nov-2023</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_6" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_6" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_6" class="fontingrid" style="font-weight:bold;font-style:italic;">Training Call Letters</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_6" class="fontingrid" style="color:Black;">TR-13016(2)/8/2023-TRAINING CELL(T)-NABM DELHI</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_6" class="fontingrid" style="color:Black;">02-Nov-2023</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_7">8</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_7" class="fontingrid" style="font-weight:bold;font-style:italic;">Akashvani & Doordarshan - DELHI,ADG(E)-(NZ) - NBU/Off.</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_7" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl10$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">Declaration of Head of the Programme of DDK Chandigarh.</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_7" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_7" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_7" class="fontingrid" style="font-weight:bold;font-style:italic;">02-Nov-2023</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_7" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_7" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_7" class="fontingrid" style="font-weight:bold;font-style:italic;">Orders</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_7" class="fontingrid" style="color:Black;">ADG (NZ)/4/Admin/HOO/2021/EPC</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_7" class="fontingrid" style="color:Black;">02-Nov-2023</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_8">9</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_8" class="fontingrid" style="font-weight:bold;font-style:italic;">Akashvani & Doordarshan - NABM(T)-BHUBHANESHWAR - NBU/Off.</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_8" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl11$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">Request for nominations for Various Off-line Training Courses to be conducted by NABM, Bhubaneswar from January 2024 to March 2024 in Training Year 2023-2024.</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_8" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_8" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_8" class="fontingrid" style="font-weight:bold;font-style:italic;">02-Nov-2023</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_8" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_8" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_8" class="fontingrid" style="font-weight:bold;font-style:italic;">Circulars</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_8" class="fontingrid" style="color:Black;">BBSR/NABM/TC/2023-2024/Trg. dated 02-11-2023</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_8" class="fontingrid" style="color:Black;">02-Nov-2023</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr><tr align="center" valign="middle" style="background-color:#F7F7F7;font-weight:bold;height:30px;">
+			<td align="center" style="width:4%;">
+                                            <span id="ContentSection_grdwhatsnew_lblSNo_9">10</span>
+                                        </td><td align="center" style="width:11%;">
+                                            <div style="padding-left: 7px; padding-right: 5px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_lbluploader_9" class="fontingrid" style="font-weight:bold;font-style:italic;">PBSect.-PB-Sectt(Order/Circular Upload)</span>
+                                            </div>
+                                        </td><td align="left" style="width:57%;">
+                                            <div style="padding-left: 10px; padding-top: 7px; padding-bottom: 7px; padding-right: 10px">
+                                                <a onclick="return confirm(&#39;Your download activities will be logged. Do you still want to continue?&#39;);" id="ContentSection_grdwhatsnew_lnktitle_9" class="font" href="javascript:__doPostBack(&#39;ctl00$ContentSection$grdwhatsnew$ctl12$lnktitle&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">Taxation Section - GST Circular No. 46  - Compliances required to be done till 30th November, 2023</a>
+                                                <br />
+                                                <span id="ContentSection_grdwhatsnew_lbluplon_9" class="font" style="color:Maroon;font-weight:bold;">Uploaded On</span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon1_9" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_lbluplon2_9" class="fontingrid" style="font-weight:bold;font-style:italic;">01-Nov-2023</span>
+                                                ,&nbsp
+                                                <span id="ContentSection_grdwhatsnew_Label1_9" class="font" style="color:Maroon;font-weight:bold;">Doc-Category</span>
+                                                <span id="ContentSection_grdwhatsnew_Label6_9" style="font-size:8pt;font-weight:bold;">: </span>
+                                                <span id="ContentSection_grdwhatsnew_Label7_9" class="fontingrid" style="font-weight:bold;font-style:italic;">GST Related</span>
+                                                
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 5px; padding-right: 2px" align="left">
+                                                <span id="ContentSection_grdwhatsnew_Label3_9" class="fontingrid" style="color:Black;">PB-7(14)(1)/2018-/FIN/GST</span>
+                                            </div>
+                                        </td><td style="width:12%;">
+                                            <div style="padding-left: 2px; padding-right: 2px" align="center">
+                                                <span id="ContentSection_grdwhatsnew_Label11_9" class="fontingrid" style="color:Black;">01-Nov-2023</span>
+                                                
+                                            </div>
+                                        </td>
+		</tr>
+	</table>
+</div>
+                        </div>
+                        <div align="right" style="padding-right: 10px; padding-bottom: 7px; padding-top: 7px">
+                            <a id="ContentSection_LinkButton2" title="All Orders/Circulars" class="font2" href="javascript:__doPostBack(&#39;ctl00$ContentSection$LinkButton2&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;text-decoration:none;">
+                                ...more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-lg-2 col-sm-2  scrollnew" style="padding-top: 10px; padding-left: 13px; padding-right: 15px;">
+                <table class="table text-center table-bordered height1 gradtab12" width="98%">
+                    <tr id="ContentSection_trempphoto">
+	<td colspan="2">
+                            <div align="center" style="padding: 5px 0px 5px 0px;">
+                                <img id="ContentSection_ImageButton3" title="Profile Photo" class="img-responsive" src="empphoto/" alt="No Profile Photo" align="middle" style="height:85%;width:80px;" />
+                                <div id="ContentSection_divempphotoupload" align="center">
+                                    <a id="ContentSection_lnkempupload" data-target="#loginModal" data-toggle="modal" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentSection$lnkempupload&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))" style="color:Blue;">
+                                        Upload/Change Photo</a>
+                                </div>
+                            </div>
+                            <div class="xs-12">
+                                
+                                
+                                <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal"
+                                    tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">
+                                                    &times;</button>
+                                                
+                                                <h4 class="modal-title">Upload/Change Photo</h4>
+                                            </div>
+                                            <div class="modal-body" align="center">
+                                                <div class="form-group">
+                                                    <input type="file" name="ctl00$ContentSection$FileUpload1" id="ContentSection_FileUpload1" />
+                                                    
+                                                    <br />
+                                                    <span id="ContentSection_Label52" style="color:Red;font-size:Small;font-style:italic;">* Image Size should be between 20kB to 50 kB</span>
+                                                    <br />
+                                                    <span id="ContentSection_Label53" style="color:Red;font-size:Small;font-style:italic;">* Image Dimensions should be between 0-230px X 0-200px.</span>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input type="submit" name="ctl00$ContentSection$btnupload" value="Upload" id="ContentSection_btnupload" class="btn btn-primary" />
+                                                <input type="submit" name="ctl00$ContentSection$btnclose" value="Close" id="ContentSection_btnclose" class="btn btn-primary" data-dismiss="modal" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+</tr>
+
+                    
+                    
+                    <tr id="ContentSection_divgrievanceemployee">
+	<td colspan="2" align="center">
+                            <input type="image" name="ctl00$ContentSection$imggrievance" id="ContentSection_imggrievance" disabled="disabled" title="File your Grievances" class="aspNetDisabled" class="img-responsive imground" alt="Grievances" src="images/Grievance3.png" style="height:40px;width:40px;" />
+                            <br />
+                            <span id="ContentSection_Label4" class="font" style="font-weight: bold; color: Black">Grievances <br> [Under developement]</span>
+                        </td>
+</tr>
+
+                    
+                    
+                    
+                    <tr>
+                        <td colspan="2" align="center">
+                            <img id="ContentSection_ImageButton4" title="Today&#39;s Birthday" class="img-responsive imground" data-target="#loginModal42" data-toggle="modal" alt="Birthday" src="images/birt3.png" style="height:40px;width:40px;" />
+                            <span id="ContentSection_lblbday" class="font" style="font-weight: bold; color: Black">Today's Birthday</span>
+                            <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal42"
+                                tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div id="ContentSection_UpdatePanel6">
+	
+                                            <div class="modal-content gradbody">
+                                                <div class="modal-header">
+                                                    <button type="button" style="font-weight: bold; color: Black" class="close" data-dismiss="modal"
+                                                        onclick="clearmodal()">
+                                                        &times;</button>
+                                                    
+                                                    
+                                                </div>
+                                                <div class="modal-body">
+                                                    <span class="popuptext" id="Span2">
+                                                        <div class="form-group">
+                                                            <div class="panel panel-primary">
+                                                                <div class="panel-heading grad3">
+                                                                    <span style="color: Black; font-weight: 700" class="font2">:: Today Birthdays ::</span>
+                                                                </div>
+                                                                <div class="panel-body grad2 table-responsive">
+                                                                    <div>
+		<table cellspacing="0" rules="all" id="ContentSection_grdbday" style="color:#333333;border-width:2px;border-style:Solid;width:90%;border-collapse:collapse;">
+			<tr class="leftHeaderText fontingrid" align="center" valign="middle" style="color:Black;background-color:#E67E22;font-weight:bold;">
+				<th align="center" scope="col">S.No.</th><th align="center" scope="col">Name Of Employee</th>
+			</tr><tr align="center" valign="middle" style="background-color:#EFF3FB;font-weight:bold;height:30px;">
+				<td align="center">
+                                                                                    <span id="ContentSection_grdbday_lblSNo_0">1</span>
+                                                                                </td><td align="left">
+                                                                                    <div style="padding: 10px">
+                                                                                        <span id="ContentSection_grdbday_lnkbdayname_0" class="font" style="color:Black;font-weight:bold;">A S RAVEESHA  </span>
+                                                                                    </div>
+                                                                                </td>
+			</tr><tr align="center" valign="middle" style="background-color:White;font-weight:bold;height:30px;">
+				<td align="center">
+                                                                                    <span id="ContentSection_grdbday_lblSNo_1">2</span>
+                                                                                </td><td align="left">
+                                                                                    <div style="padding: 10px">
+                                                                                        <span id="ContentSection_grdbday_lnkbdayname_1" class="font" style="color:Black;font-weight:bold;">AJAI KUMAR MAURYA  </span>
+                                                                                    </div>
+                                                                                </td>
+			</tr><tr align="center" valign="middle" style="background-color:#EFF3FB;font-weight:bold;height:30px;">
+				<td align="center">
+                                                                                    <span id="ContentSection_grdbday_lblSNo_2">3</span>
+                                                                                </td><td align="left">
+                                                                                    <div style="padding: 10px">
+                                                                                        <span id="ContentSection_grdbday_lnkbdayname_2" class="font" style="color:Black;font-weight:bold;">AJIT MARUTI KAMBLE  </span>
+                                                                                    </div>
+                                                                                </td>
+			</tr><tr align="center" valign="middle" style="background-color:White;font-weight:bold;height:30px;">
+				<td align="center">
+                                                                                    <span id="ContentSection_grdbday_lblSNo_3">4</span>
+                                                                                </td><td align="left">
+                                                                                    <div style="padding: 10px">
+                                                                                        <span id="ContentSection_grdbday_lnkbdayname_3" class="font" style="color:Black;font-weight:bold;">AJOHNSELVARAJ   </span>
+                                                                                    </div>
+                                                                                </td>
+			</tr>
+		</table>
+	</div>
+                                                                    <div align="right" style="padding: 10px">
+                                                                        <a id="ContentSection_lnkmorebirthday" title="Birthday List" class="font2" href="javascript:__doPostBack(&#39;ctl00$ContentSection$lnkmorebirthday&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;">
+                                                                            ...more</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="submit" name="ctl00$ContentSection$Button7" value="Close" onclick="clearmodal();" id="ContentSection_Button7" class="btn grad4" data-dismiss="modal" style="font-weight:bold;" />
+                                                </div>
+                                            </div>
+                                        
+</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            
+                            <img id="ContentSection_Image4" title="Retiring this Month" class="img-responsive imground" data-target="#loginModal41" data-toggle="modal" alt="Retirements" src="images/ret23.png" style="height:40px;width:40px;" />
+                            <span id="ContentSection_Label18" class="font" style="font-weight: bold; color: Black">Retiring this Month</span>
+                            <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal41"
+                                tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div id="ContentSection_UpdatePanel5">
+	
+                                            <div class="modal-content gradbody">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" onclick="clearmodal()">
+                                                        &times;</button>
+                                                    
+                                                    
+                                                </div>
+                                                <div class="modal-body">
+                                                    <span class="popuptext" id="Span1">
+                                                        <div class="form-group">
+                                                            <div class="panel panel-primary">
+                                                                <div class="panel-heading grad3">
+                                                                    <span style="color: Black; font-weight: 700" class="font2">:: Retiring this Month ::</span>
+                                                                </div>
+                                                                <div class="panel-body grad2 table-responsive">
+                                                                    <div>
+		<table cellspacing="0" rules="all" id="ContentSection_grdretirement" style="color:#333333;border-width:2px;border-style:Solid;width:90%;border-collapse:collapse;">
+			<tr class="leftHeaderText fontingrid" align="center" valign="middle" style="color:Black;background-color:#E67E22;font-weight:bold;">
+				<th align="center" scope="col">S.No.</th><th align="center" scope="col">Name Of Employee</th>
+			</tr><tr align="center" valign="middle" style="background-color:#EFF3FB;font-weight:bold;height:30px;">
+				<td align="center">
+                                                                                    <span id="ContentSection_grdretirement_lblSNo_0">1</span>
+                                                                                </td><td align="left">
+                                                                                    <div style="padding: 10px">
+                                                                                        <span id="ContentSection_grdretirement_lnkretname_0" class="font" style="color:Black;font-weight:bold;">A ANILKUMAR  </span>
+                                                                                    </div>
+                                                                                </td>
+			</tr><tr align="center" valign="middle" style="background-color:White;font-weight:bold;height:30px;">
+				<td align="center">
+                                                                                    <span id="ContentSection_grdretirement_lblSNo_1">2</span>
+                                                                                </td><td align="left">
+                                                                                    <div style="padding: 10px">
+                                                                                        <span id="ContentSection_grdretirement_lnkretname_1" class="font" style="color:Black;font-weight:bold;">A ARUNA  </span>
+                                                                                    </div>
+                                                                                </td>
+			</tr><tr align="center" valign="middle" style="background-color:#EFF3FB;font-weight:bold;height:30px;">
+				<td align="center">
+                                                                                    <span id="ContentSection_grdretirement_lblSNo_2">3</span>
+                                                                                </td><td align="left">
+                                                                                    <div style="padding: 10px">
+                                                                                        <span id="ContentSection_grdretirement_lnkretname_2" class="font" style="color:Black;font-weight:bold;">A HAMZA  </span>
+                                                                                    </div>
+                                                                                </td>
+			</tr><tr align="center" valign="middle" style="background-color:White;font-weight:bold;height:30px;">
+				<td align="center">
+                                                                                    <span id="ContentSection_grdretirement_lblSNo_3">4</span>
+                                                                                </td><td align="left">
+                                                                                    <div style="padding: 10px">
+                                                                                        <span id="ContentSection_grdretirement_lnkretname_3" class="font" style="color:Black;font-weight:bold;">A K SURENDRAN  </span>
+                                                                                    </div>
+                                                                                </td>
+			</tr>
+		</table>
+	</div>
+                                                                    <div align="right" style="padding: 10px">
+                                                                        <a id="ContentSection_lnkretmore" title="Retirement List" class="font2" href="javascript:__doPostBack(&#39;ctl00$ContentSection$lnkretmore&#39;,&#39;&#39;)" style="color:Blue;font-weight:bold;">
+                                                                            ...more</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="submit" name="ctl00$ContentSection$Button3" value="Close" onclick="clearmodal();" id="ContentSection_Button3" class="btn grad4" data-dismiss="modal" style="font-weight:bold;" />
+                                                </div>
+                                            </div>
+                                        
+</div>
+                                </div>
+                            </div>
+                            
+                            
+                        </td>
+                    </tr>
+                    <tr id="Tr1">
+                        <td colspan="2" align="center">
+                            <img id="ContentSection_Image51" title="Search Employee" data-target="#loginModal4" data-toggle="modal" class="img-responsive imground" alt="Search Employee" src="images/SearchEmployee.png" style="height:40px;width:40px;" />
+                            <span id="ContentSection_Label19" class="font" style="font-weight: bold; color: Black">Search Employee</span>
+                            <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal4"
+                                tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div id="ContentSection_UpdatePanel2">
+	
+                                            <div class="modal-content gradbody">
+                                                <div class="modal-header">
+                                                    <button type="button" style="color: Black" class="close" data-dismiss="modal" onclick="clearmodal()">
+                                                        &times;</button>
+                                                    
+                                                    <h4 class="modal-title" style="font-weight: bold; color: Black">Search Employee</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <span id="ContentSection_lblnamesearch" class=" font2" style="color:Black;font-weight:bold;">Name</span>
+                                                        &nbsp;
+                                                        <input name="ctl00$ContentSection$txtemployee" type="text" id="txtemployee" class="select widthofboxes1 font2" style="color:Black;background-color:#F2F4F4;height:22px;" />
+                                                        <span id="ContentSection_RegularExpressionValidator1" class=" fontingrid" style="color:#FF0000;font-weight:700;display:none;">Atleast 3 Chracters Reqd!!</span>
+                                                        <span id="ContentSection_RequiredFieldValidator1" class=" fontingrid" style="color:Red;font-size:small;font-weight:700;display:none;">Name Reqd..</span>
+                                                        &nbsp;&nbsp;
+                                                        <input type="submit" name="ctl00$ContentSection$Button23" value="Search" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentSection$Button23&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ContentSection_Button23" class="btn grad4" style="font-weight: bold" />
+                                                        
+                                                        <br />
+                                                        <br />
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="submit" name="ctl00$ContentSection$Button6" value="Close" onclick="clearmodal();" id="ContentSection_Button6" class="btn grad4" data-dismiss="modal" style="font-weight:bold;" />
+                                                </div>
+                                            </div>
+                                        
+</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="image" name="ctl00$ContentSection$ImageButton2" id="ContentSection_ImageButton2" title="Click here to download PB Calender" class="img-responsive" alt="Cal.." src="images/cal3.png" style="height:40px;width:40px;" />
+                            <span id="ContentSection_Label20" class="font" style="font-weight: bold; color: Black">PB Calender</span>
+                        </td>
+                    </tr>
+                    
+                    
+                    
+                </table>
+            </div>
+        </div>
+        <div class="row" style="padding: 0px 28px 10px 27px; margin: auto">
+            
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center" style="padding: 16px 0px 15px 0px">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+                    <div class="carousel-inner" align="center">
+                        
+                        
+                                <div class="item active">
+                                    <img id="ContentSection_Rgallary_Image3_0" src="Gallery/Broadcasting%20House_16_10_01-03-2018%2000o00o00.jpeg" style="height:380px;width:100%;" />
+                                    
+                                    <div class="carousel-caption" align="center">
+                                        
+                                        <span id="ContentSection_Rgallary_lblcaption_0" style="color:White;font-size:Large;font-weight:bold;">Broadcasting House,New Delhi</span>
+                                    </div>
+                                </div>
+                            
+                                <div class="item ">
+                                    <img id="ContentSection_Rgallary_Image3_1" src="Gallery/DD%20Mandi%20House1_27_13_25-10-2018%2013o35o22.jpg" style="height:380px;width:100%;" />
+                                    
+                                    <div class="carousel-caption" align="center">
+                                        
+                                        <span id="ContentSection_Rgallary_lblcaption_1" style="color:White;font-size:Large;font-weight:bold;">DD Mandi House,New Delhi</span>
+                                    </div>
+                                </div>
+                            
+                                <div class="item ">
+                                    <img id="ContentSection_Rgallary_Image3_2" src="Gallery/TV%20Tower_27_18_25-10-2018%2014o18o29.jpg" style="height:380px;width:100%;" />
+                                    
+                                    <div class="carousel-caption" align="center">
+                                        
+                                        <span id="ContentSection_Rgallary_lblcaption_2" style="color:White;font-size:Large;font-weight:bold;">TV Tower, Pitampura, New-Delhi</span>
+                                    </div>
+                                </div>
+                            
+                                <div class="item ">
+                                    <img id="ContentSection_Rgallary_Image3_3" src="Gallery/%20Inauguration%20of%20PBHS%20Card%20&amp;%20its%20Portal%20by%20CEO_27_28_7o23o2022%2012o29o07%20PM.jpg" style="height:380px;width:100%;" />
+                                    
+                                    <div class="carousel-caption" align="center">
+                                        
+                                        <span id="ContentSection_Rgallary_lblcaption_3" style="color:White;font-size:Large;font-weight:bold;">PBHS Card and Portal (which is Developed by PB- IT Team) was inaugurated by CEO -Prasar Bharati. During this M(P), M(F) and higher official was present.</span>
+                                    </div>
+                                </div>
+                            
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous</span>
+                        </a><a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="row containerdiv paddingforCEOdash" style="margin: auto;">
+            
+            
+            <div class="col-lg-4 col-md-4 col-sm-4 paddingCEObot">
+                <div id="ContentSection_divceon" class="card scrollnew gradformessage" style="padding: 20px">
+                    <div align="center">
+                        <img id="ContentSection_imgceo" title="CEO" class="img-responsive" src="ManagementPhoto/gauravdwevedi.jpg" alt="CEO" align="middle" style="height:160px;width:150px;" />
+                    </div>
+                    <div class="container11">
+                        <div align="center">
+                            <div style="padding-top: 10px; padding-bottom: 5px">
+                                <span id="ContentSection_lblnameCEO" class="font2" style="font-weight:bold;">Sh. Gaurav Dwivedi</span>
+                            </div>
+                            <div style="padding-top: 0px; padding-bottom: 13px">
+                                <span id="ContentSection_Label39" class="font2" style="font-weight:bold;">Chief Executive Officer</span>
+                                
+                            </div>
+                            <p class="title">
+                                <span style="color: Blue; font-weight: bold; font-size: smaller; text-decoration: underline">Message from the Office of CEO</span>
+                            </p>
+                        </div>
+                        
+                        <div style="border: medium ridge #000000; padding: 7px; min-height: 130px">
+                            <span id="ContentSection_lblceomessage" class="font2" style="color:Black;font-weight:bold;"></span>
+                            <br />
+
+                            
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 paddingCEObot">
+                
+                <div id="ContentSection_div1" class="card scrollnew gradformessage" style="padding: 20px">
+                    <div align="center">
+                        <img id="ContentSection_imgdgair" title="DG:AIR" class="img-responsive" src="ManagementPhoto/vasudhagupta.jpg" alt="DG:AIR" align="middle" style="height:160px;width:150px;" />
+                    </div>
+                    <div class="container11">
+                        <div align="center">
+                            <div style="padding-top: 10px; padding-bottom: 5px">
+                                <span id="ContentSection_lblDGAIRname" class="font2" style="font-weight:bold;">Dr. Vasudha Gupta</span>
+                            </div>
+                            <div style="padding-top: 0px; padding-bottom: 13px">
+                                <span id="ContentSection_Label40" class="font2" style="font-weight:bold;">DG:AIR</span>
+                                
+                            </div>
+                            <p class="title">
+                                <span style="color: Blue; font-weight: bold; font-size: smaller; text-decoration: underline">Message from the Office of DG:AIR</span>
+                            </p>
+                        </div>
+                        
+                        <div style="border: medium ridge #000000; padding: 7px; min-height: 130px">
+                            <span id="ContentSection_lbldgair" class="font2" style="color:Black;font-weight:bold;"></span>
+                            <br />
+
+                            
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 paddingCEObot">
+                <div id="ContentSection_div3" class="card scrollnew gradformessage" style="padding: 20px">
+                    <div align="center">
+                        <img id="ContentSection_imgdgdd" title="DG:DD" class="img-responsive" src="ManagementPhoto/" alt="DG:DD" align="middle" style="height:160px;width:150px;" />
+                    </div>
+                    <div class="container11">
+                        <div align="center">
+                            <div style="padding-top: 10px; padding-bottom: 5px">
+                                <span id="ContentSection_lbldgddn" class="font2" style="font-weight:bold;"></span>
+                            </div>
+                            <div style="padding-top: 0px; padding-bottom: 13px">
+                                <span id="ContentSection_Label41" class="font2" style="font-weight:bold;">DG:DD</span>
+                            </div>
+                            <p class="title">
+                                <span style="color: Blue; font-weight: bold; font-size: smaller; text-decoration: underline">Message from the Office of DG:DD</span>
+                            </p>
+                        </div>
+                        
+                        <div style="border: medium ridge #000000; padding: 7px; min-height: 130px">
+                            <span id="ContentSection_lbldgdd" class="font2" style="color:Black;font-weight:bold;"></span>
+                            <br />
+
+                            
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    </div>
+    
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ContentSection_RegularExpressionValidator1"), document.getElementById("ContentSection_RequiredFieldValidator1"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ContentSection_RegularExpressionValidator1 = document.all ? document.all["ContentSection_RegularExpressionValidator1"] : document.getElementById("ContentSection_RegularExpressionValidator1");
+ContentSection_RegularExpressionValidator1.controltovalidate = "txtemployee";
+ContentSection_RegularExpressionValidator1.focusOnError = "t";
+ContentSection_RegularExpressionValidator1.errormessage = "Atleast 3 Chracters Reqd!!";
+ContentSection_RegularExpressionValidator1.display = "Dynamic";
+ContentSection_RegularExpressionValidator1.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ContentSection_RegularExpressionValidator1.validationexpression = "^[\\s\\S\\d]{3,100}$";
+var ContentSection_RequiredFieldValidator1 = document.all ? document.all["ContentSection_RequiredFieldValidator1"] : document.getElementById("ContentSection_RequiredFieldValidator1");
+ContentSection_RequiredFieldValidator1.controltovalidate = "txtemployee";
+ContentSection_RequiredFieldValidator1.focusOnError = "t";
+ContentSection_RequiredFieldValidator1.errormessage = "Name Reqd..";
+ContentSection_RequiredFieldValidator1.display = "Dynamic";
+ContentSection_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentSection_RequiredFieldValidator1.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+alert('Could not find file 'C:\Sanjay_Working\BACKUP CODE PRASARNET\prasarnet_27Dec2021\Calender\11_2023.pdf'.');
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('ContentSection_RegularExpressionValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentSection_RegularExpressionValidator1'));
+}
+
+document.getElementById('ContentSection_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentSection_RequiredFieldValidator1'));
+}
+//]]>
+</script>
+</form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,72 @@
+﻿@*@{
+        Layout = "_Layout";
+        ViewData["Title"] = "TreeView";
+    }
+
+    <h1>TreeView</h1>*@
+
+@*@model List<PRASARNET.Areas.MasterMng.Models.Permission>
+
+    @functions {
+        void RenderTree(List<PRASARNET.Areas.MasterMng.Models.Permission> nodes)
+        {
+            if (nodes != null && nodes.Any())
+            {
+                <ul>
+                    @foreach (var node in nodes)
+                    {
+                        <li>
+                            @node.PermissionName
+                            @RenderTree(node.Children)
+                        </li>
+                    }
+                </ul>
+            }
+        }
+    }
+
+    <h2>Permissions Tree</h2>
+
+    @RenderTree(Model)*@
+
+
+@model List<PRASARNET.Areas.MasterMng.Models.Permission>
+
+<div class="content-wrapper">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white rounded-top-3">
+            <h2 class="mb-1">Permissions</h2>
+        </div>
+        <div class="card-body">
+
+            @Html.Partial("_PermissionTree", Model)
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var buttons = document.querySelectorAll('.toggle-btn');
+
+        buttons.forEach(function (btn) {
+            var targetSelector = btn.getAttribute('data-target');
+            var target = document.querySelector(targetSelector);
+
+            $(target).on('show.bs.collapse', function () {
+                btn.textContent = '[-]';
+            });
+
+            $(target).on('hide.bs.collapse', function () {
+                btn.textContent = '[+]';
+            });
+        });
+    });
+</script>
+
+
+

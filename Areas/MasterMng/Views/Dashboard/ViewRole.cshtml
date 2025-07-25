@@ -1,0 +1,63 @@
+﻿@model List<PRASARNET.Areas.MasterMng.Models.Roles>
+@{
+    ViewData["Title"] = "ViewRole";
+    Layout = "_Layout";
+}
+
+<div class="content-wrapper">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white rounded-top-3">
+            <h2 class="mb-1">Active Roles</h2>
+        </div>
+        <div class="card-body">
+
+            <!-- Create New Button with a more prominent style and aligned right -->
+            <a href="" class="btn btn-success btn-sm my-2 float-right">
+                <i class="mdi mdi-plus"></i> Create New Role
+            </a>
+
+            <div class="table-responsive">
+                <table id="statesTable" class="table table-striped table-bordered">
+
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Role ID</th>
+                                        <th>Role Name</th>
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var role in Model)
+                                    {
+                                        <tr>
+                                            <td>@role.RoleID</td>
+                                            <td>@role.RoleName</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="" class="btn btn-info btn-sm">
+                                                        <i class="mdi mdi-information-outline"></i> Details
+                                                    </a>
+                                                    <a href="" class="btn btn-warning btn-sm mx-1">
+                                                        <i class="mdi mdi-pencil-outline"></i> Edit
+                                                    </a>
+                                                    <a href="" class="btn btn-danger btn-sm"
+                                                       onclick="return confirm('Are you sure you want to delete this  ?');">
+                                                        <i class="mdi mdi-delete-outline"></i> Delete
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+      
+
+
+        </div>
+
+

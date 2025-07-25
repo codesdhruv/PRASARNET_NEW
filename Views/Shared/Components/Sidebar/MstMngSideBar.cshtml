@@ -1,0 +1,44 @@
+﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Main Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" asp-area="MasterMng" asp-controller="Dashboard" asp-action="Index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Master Mng Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="MasterMng" asp-controller="RolePermission" asp-action="Index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Role Permissions</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="MasterMng" asp-controller="Employee" asp-action="Index">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Manage Employee</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#MasterMenu" aria-expanded="false" aria-controls="MasterMenu">
+                <i class="mdi mdi-database menu-icon"></i>
+                <span class="menu-title">Masters</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="MasterMenu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" asp-area="MasterMng" asp-controller="" asp-action=""> Stations </a></li>
+                    <li class="nav-item"> <a class="nav-link" asp-area="MasterMng" asp-controller="" asp-action=""> Cities </a></li>
+                    <li class="nav-item"> <a class="nav-link" asp-area="MasterMng" asp-controller="Masters" asp-action="StateView"> States </a></li>
+                    <li class="nav-item"> <a class="nav-link" asp-area="MasterMng" asp-controller="Role" asp-action="Index"> Roles </a></li>
+                    <li class="nav-item"> <a class="nav-link" asp-area="MasterMng" asp-controller="Dashboard" asp-action="TreeView"> Permissions </a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,275 @@
+﻿@model List<HandelApplicationViewModel>
+@*<table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>App No</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Submitted On</th>
+                <th>Status</th>
+                <th>Action Taken</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var app in Model)
+            {
+                <tr>
+                    <td>@app.ApplicationNo</td>
+                    <td>@app.Name_emp</td>
+                    <td>@app.Emp_Designation</td>
+                    <td>@app.Emp_ContactNo</td>
+                    <td>@app.Emp_Email</td>
+                    <td>@app.SubmittedOn</td>
+                    <td>@app.CurrentStatus</td>
+                    <td>@app.Action_Taken</td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+<div class="content-wrapper p-0">
+
+    <div class="container mt-4">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var app in Model)
+            {
+                <div class="card mb-4 shadow-sm border rounded">
+                    <div class="card-header bg-primary d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="my-1 text-white">Application No: @app.ApplicationNo</h5>
+                            <small class="text-white-50">Submitted On: @app.SubmittedOn</small>
+                        </div>
+                        <span class="badge badge-warning font-weight-bold">@app.FinalStatus</span>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Name:</strong> @app.Name_emp</p>
+                                <p class="mb-1"><strong>Designation:</strong> @app.Emp_Designation</p>
+                                <p class="mb-1"><strong>Station/Office:</strong> @app.Emp_Present_Place</p>
+                                <p class="mb-1"><strong>Email:</strong> <a href="mailto:@app.Emp_Email">@app.Emp_Email</a></p>
+                                <p class="mb-1"><strong>Contact No:</strong> @app.Emp_ContactNo</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Action:</strong> <span class="text-danger">@app.Action_Taken</span></p>
+                                <p class="mb-1"><strong>Document Forwarded:</strong> @app.ForwardedTo</p>
+                                <p class="mb-1"><strong>Email Sent To:</strong> @app.PrimaryEmail</p>
+                                <p class="mb-1"><strong>CC Email:</strong> @app.CcEmail</p>
+                            </div>
+                        </div>
+
+                        <hr class="m-2" />
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#actionModal">
+                                    Action
+                                </button>
+                                <a href="#" class="btn btn-sm btn-success mr-2">Action</a>
+                                @if (@app.IsApproved)
+                                {
+                                    <span class="text-success small ml-4">Certified by @app.ApprovedBy  </span>
+                                }
+                                else
+                                {
+                                    <a href="#" class="text-primary font-weight-bold open-certify-modal" data-appid="@app.ApplicationNo">Approve/Certify</a>
+                                    <div class="text-danger small mt-1">* Approve/Certify details are mandatory for HOO/Admin</div>
+                                }
+
+                            </div>
+                            <div>
+                                <a href="#" class="text-primary mr-3 track-btn" data-basicid="@app.BasicId" data-toggle="modal" data-target="#trackModal">Track Application</a>
+
+                                <a href="#" class="text-primary">View/Print Application</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-info">
+                No applications found.
+            </div>
+        }
+    </div>
+    <div class="container">
+     
+
+    </div>
+</div>
+
+@*------------TRACK MODAL----------------*@
+<div class="modal fade" id="trackModal" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="trackModalLabel">Track Your Transfer Application</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="trackApplicationContent">
+                    <p class="text-muted">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*------------CERTIFY MODAL----------------*@
+<div id="certifyModalContainer"></div>
+
+@*ACTION MODAL*@
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="actionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>Options Seeking for Transfer</th>
+                                <td>Option1: CHITTOOR, Option2: CUDDAPAH, Option3: DARAK</td>
+                            </tr>
+                            <tr>
+                                <th>Tenure Options Seeking for Transfer</th>
+                                <td>Tenure Option1: None, Tenure Option2: None, Tenure Option3: None</td>
+                            </tr>
+                            <tr>
+                                <th>Name, Mobile No, E-Mail, of Applicant </th>
+                                <td>Name: ASHISH KUMAR (Engineering Assistant), Mobile No: 9650660304, E-Mail: ashishkumar@prasarbharati.gov.in</td>
+                            </tr>
+                            <tr>
+                                <th>Place of Posting</th>
+                                <td>AIR-DELHI P & D UNIT(NBU/Off.)</td>
+                            </tr>
+                            <tr>
+                                <th>Email </th>
+                                <td>
+                                    <input type="email" class="form-control" value="ashishkumar@prasarbharati.gov.in" />
+                                    <p>*Email of the Applicant as mentioned by him/her during the filing of Transfer Request.</p>
+                                    <p class="text-danger fw-bold">**Multiple Recipents are not allowed.</p>
+                                    <input type="email" class="form-control" value="baijumvr@prasarbharati.gov.in" />
+                                    <p>**Multiple Recipients are allowed in CC. Here the recipients must be seperated by comma ( , ). No other seperators are allowed. </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Whether Transfer Request Accepted?   </th>
+                                <td>
+                                    <select class="form-select">
+                                        <option>Select</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="slect-trasfer" style="display:none;">
+                                <th>Trasfer to Station</th>
+                                <td>
+                                    <select class="form-select mb-2">
+                                        <option>Select Organisation</option>
+                                    </select>
+                                    <select class="form-select">
+                                        <option>Select Station</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Whether VIP Reference?    </th>
+                                <td>
+                                    <select class="form-select">
+                                        <option>Select</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Remarks   </th>
+                                <td>
+                                    <textarea class="form-control mb-2"></textarea>
+                                    <input type="file" />
+                                    <p class="fw-bold text-danger">
+                                        * Upload supporting document upto 3MB, If necessary
+                                        ** Only .pdf are allowed to upload
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $(".track-btn").click(function () {
+                var basicId = $(this).data("basicid");
+
+                $.ajax({
+                    url: '@Url.Action("TrackDetails", "HandelRequest", new { area = "TRAM" })',
+                    type: 'GET',
+                    data: { basicId: basicId },
+                    beforeSend: function () {
+                        $("#trackApplicationContent").html('<p class="text-muted">Loading...</p>');
+                    },
+                    success: function (result) {
+                        $("#trackApplicationContent").html(result);
+                    },
+                    error: function () {
+                        $("#trackApplicationContent").html('<p class="text-danger">Failed to load application tracking.</p>');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.open-certify-modal').on('click', function (e) {
+                e.preventDefault();
+                var appId = $(this).data('appid');
+
+                $.ajax({
+                    url: '@Url.Action("LoadCertifyModal", "HandelRequest", new { area = "TRAM" })',
+                    type: 'GET',
+                    data: { appId: appId },
+                    success: function (result) {
+                        $('#certifyModalContainer').html(result);
+                        var modal = new bootstrap.Modal(document.getElementById('certifyModal'), {
+                            backdrop: 'static',
+                            keyboard: false
+                        });
+                        modal.show();
+                    },
+                    error: function () {
+                        alert('Failed to load certification form.');
+                    }
+                });
+            });
+        });
+    </script>
+
+}

@@ -1,0 +1,182 @@
+﻿@*@model List<PRASARNET.Areas.PrasarNet.Models.Circular>*@
+@model object // no strongly-typed model for server-side DataTable
+
+
+@{
+    ViewData["Title"] = "Prasarnet Home";
+    var categories = ViewBag.Categories as List<SelectListItem> ?? new List<SelectListItem>();
+}
+<style type="text/css">
+    #circularDataTable {
+        width: 100% !important;
+        table-layout: auto;
+    }
+    .fixed-col {
+        text-overflow: ellipsis;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    #circularDataTable td {
+        text-wrap: auto !important;
+        padding: 5px !important;
+        font-size: 12px;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                    <h3 class="font-weight-bold">Documents</h3>
+                </div>
+                <div class="col-12 col-xl-4">
+                    <div class="justify-content-end d-flex">
+                        <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                            <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button">
+                                @DateTime.Now.ToString("dd MMM yyyy")
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="categoryFilter" class="form-label fw-bold">Filter by Category</label>
+                            <select id="categoryFilter" class="form-select">
+                                @foreach (var item in categories)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    @* <p style="text-transform: capitalize; font-size: 1.125rem; font-weight: 600; text-align: center; background: #4b49ac; color: white; padding: 10px; border-radius: 5px;" class="card-title mb-0">Documents</p> *@
+                    <div class="table-responsive mt-1">
+                        <table id="circularDataTable" class="table table-striped table-bordered table-hover" style="width:100%">
+
+                            <thead class="thead-dark">
+                                @*<tr>
+                                    <th width="1%">#</th>
+                                    <th width="10%">Uploaded By</th>
+                                    <th width="55%">Title/Subject</th>
+                                    <th width="15%">Dated</th>
+                                </tr>*@
+                                <tr>
+                                    <th>#</th>
+                                    <th>Uploaded By</th>
+                                    <th>Title/Subject</th>
+                                    <th>Dated</th>
+                                </tr>
+
+                            </thead>
+                            @*<tbody>
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        int serial = 1;
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td width="1%">@serial</td>
+                                <td width="10%" class="fixed-col">@item.UploaderName</td>
+                                <td width="55%" class="fixed-col">
+                                    <span style="color:blue; font-weight:600; font-size:14px;">
+                                        <a href="@Url.Action("DownloadDocument", "Dashboard", new { docId = @item.Docid })" style="text-decoration:none;" target="_blank">@item.Doc_Title</a>
+                                    </span><br />
+                                    <span style="color:darkred; font-weight:600">Order-No :</span> @item.Doc_OrderNo,<br />
+                                    <span style="color:darkred; font-weight:600">Uploaded On :</span> @item.Createdon.ToString("dd MMM yyyy"),<br />
+                                    <span style="color:darkred; font-weight:600">Category: </span> <span style="color:black; font-weight:600;font-style: italic;"> @item.Doc_Type </span>
+                                </td>
+                                <td width="15%" style="text-align:center;" class="fixed-col">@item.Doc_Dated.ToString("dd MMM yyyy")</td>
+
+                            </tr>
+                            serial++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center">No circulars found.</td>
+                        </tr>
+                    }
+                </tbody>*@
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+    $(document).ready(function () {
+        var table = $('#circularDataTable').DataTable({
+            processing: true,
+            serverSide: true,
+            scrollX: true,  
+            responsive: true,  
+            ajax: {
+                url: '@Url.Action("GetPaginatedCirculars", "Dashboard")',
+                type: 'POST',
+                data: function (d) {
+                    d.Category = $('#categoryFilter').val(); // 👈 Pass filter value to server
+                }
+
+            },
+            columns: [
+                {
+                    data: null,
+                    render: function (data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    },
+                    width: "1%"
+                },
+                { data: "uploaderName", width: "10%" },
+                {
+                    data: "doc_Title",
+                    width: "55%",
+                    render: function (data, type, row) {
+                        return `
+                            <span style="color:blue; font-weight:600; font-size:14px;">
+                                <a href="/Dashboard/DownloadDocument?docId=${row.docid}" target="_blank">${row.doc_Title}</a>
+                            </span><br />
+                            <span style="color:darkred; font-weight:600">Order-No :</span> ${row.doc_OrderNo},<br />
+                            <span style="color:darkred; font-weight:600">Uploaded On :</span> ${moment(row.createdon).format('DD MMM YYYY')},<br />
+                            <span style="color:darkred; font-weight:600">Category: </span>
+                            <span style="color:black; font-weight:600;font-style: italic;">${row.doc_Type}</span>
+                        `;
+                    }
+                },
+                {
+                    data: "doc_Dated",
+                    width: "15%",
+                    render: function (data) {
+                        return moment(data).format('DD MMM YYYY');
+                    }
+                }
+            ],
+            pageLength: 30,
+            language: {
+                emptyTable: "No circulars found.",
+                processing: "Loading circulars..."
+            }
+        });
+
+        $('#categoryFilter').on('change', function () {
+            table.ajax.reload();
+        });
+    });
+    </script>
+
+
+}

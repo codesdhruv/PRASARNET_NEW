@@ -1,0 +1,301 @@
+﻿@model PRASARNET.Areas.TRAM.Models.TransferApplicationModel
+
+<link href="@Url.Content("~/css/vertical-layout-light/tram-application.css")" rel="stylesheet" />
+
+<div class="content-wrapper p-0">
+    <div class="row justify-content-center mt-3 mx-3">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-12 text-center p-0 mb-0">
+            <div class="card px-0 pt-2 pb-0 mt-0 mx-0">
+                <h2><strong class="text-primary">Apply Transfer</strong></h2>
+                <p>Fill all form field to go to next step</p>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <form id="msform">
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active" id="account"><strong>Basic Information</strong></li>
+                                <li id="personal"><strong>Choose Location</strong></li>
+                                <li id="payment"><strong>Other Details</strong></li>
+                                <li id="confirm"><strong>Finish</strong></li>
+                            </ul>
+                            <!-- fieldsets -->
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Account Information</h2>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Name/Employee Code/Category:</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" name="email" class="form-control" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Date Of Birth:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="dob" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Designation:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="designation" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Contact No:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="contact" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">E-Mail:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="email2" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Present Place of Posting:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="posting" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Date of Joining at Present Station:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="joiningDate" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">No of Years served at Present Place of Posting:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="yearsServed" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Date of Super-Annuation:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="superannuation" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Is Present Place of Posting Difficult/Most Difficult:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="difficultyLevel" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Tenure Completion Period:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="tenurePeriod" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Days Remaining to Complete Tenure:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="daysRemaining" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Days Exceeded after the Completion of Tenure:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="daysExceeded" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Language Known:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="languages" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Application Forwarded to Whom:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="forwardedTo" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <p class="fs-title h2 pb-2">Three Different Options Seeking for Transfer</p>
+                                    <div class="row">
+                                        <!-- Option 1 -->
+                                        <div class="col-4">
+                                            <div class="border p-3 mb-4 rounded">
+                                                <h5 class="legend-title mb-3">Option 1</h5>
+                                                <div class="form-group mb-3">
+                                                    <label for="state1" class="fieldlabels">State:</label>
+                                                    <select id="state1" class="form-control">
+                                                        <option value="" selected disabled>Select State</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="city1" class="fieldlabels">City:</label>
+                                                    <select id="city1" class="form-control">
+                                                        <option value="" selected disabled>Select City</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Option 2 -->
+                                        <div class="col-4">
+                                            <div class="border p-3 mb-4 rounded">
+                                                <h5 class="legend-title mb-3">Option 2</h5>
+                                                <div class="form-group mb-3">
+                                                    <label for="state2" class="fieldlabels">State:</label>
+                                                    <select id="state2" class="form-control">
+                                                        <option value="" selected disabled>Select State</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="city2" class="fieldlabels">City:</label>
+                                                    <select id="city2" class="form-control">
+                                                        <option value="" selected disabled>Select City</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Option 3 -->
+                                        <div class="col-4">
+                                            <div class="border p-3 mb-4 rounded">
+                                                <h5 class="legend-title mb-3">Option 3</h5>
+                                                <div class="form-group mb-3">
+                                                    <label for="state3" class="fieldlabels">State:</label>
+                                                    <select id="state3" class="form-control">
+                                                        <option value="" selected disabled>Select State</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="city3" class="fieldlabels">City:</label>
+                                                    <select id="city3" class="form-control">
+                                                        <option value="" selected disabled>Select City</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Other Details</h2>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Hometown:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class=" col-sm-8 col-form-label" for="ground">Ground on which Transfer Request is being Made</label>
+                                                <div class="col-sm-4">
+                                                    <select class="form-control list-dt" id="year" name="expyear">
+                                                        <option value="" selected disabled>Select Year</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="fieldlabels">Subject(Atmost 200 Characters are allowed):</label>
+                                    <input type="text" name="" placeholder="" />
+                                    <label class="fieldlabels">Details(Atmost 3000 Characters are allowed):</label>
+                                    <input type="text" name="" placeholder="" />
+                                    <label class="fieldlabels">In case of medical ground of self or family member, please specify if medical facilities are available at place of posting or not:</label>
+                                    <input type="text" name="" placeholder="" />
+                                    <label class="fieldlabels">Ready to forgo Transfer Benefits:</label>
+                                    <input type="text" name="" placeholder="" />
+
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Success !</h2>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
+                                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5>You Have Successfully Applied</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="~/js/Tram-application.js"></script>*@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="@Url.Content("~/js/Tram-application.js")"></script>

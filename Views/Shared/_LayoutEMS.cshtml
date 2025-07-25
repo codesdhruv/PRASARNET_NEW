@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/vendors/feather/feather.css">
+    <link rel="stylesheet" href="~/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/css/vertical-layout-light/style.css">
+    <link rel="shortcut icon" href="~/images/favicon.png" />
+    <link rel="stylesheet" href="~/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="~/js/select.dataTables.min.css">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.bootstrap4.min.css">
+    <style>
+        /* Ensure table header adjusts with row height */
+        .dataTables_scrollHeadInner thead th {
+            vertical-align: middle !important;
+            white-space: nowrap;
+        }
+
+        /* Keep buttons inline */
+        .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Prevent row height from changing */
+        td, th {
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+ 
+<body>
+    <div class="container-scroller">
+
+        @*nav bar content*@
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo mr-5" asp-controller="Home" asp-action="Index"><img src="~/images/mainlogo.png" class="mr-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" asp-controller="Home" asp-action="Index"><img src="~/images/logoprasarnet.png" alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li>
+                        <img class="img-fluid" src="~/images/ems_logo.png" alt="EMS" />
+                    </li>
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                            <img src="~/images/profile.jpg" alt="profile" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item">
+                                <i class="ti-settings text-primary"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item">
+                                <i class="ti-power-off text-primary"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="icon-menu"></span>
+                </button>
+            </div>
+        </nav>
+
+
+        <div class="container-fluid page-body-wrapper">
+
+            @* side bar content *@
+            @await Component.InvokeAsync("Sidebar")  @* Load Sidebar View Component *@
+
+            @* main content *@
+            <div class="main-panel">
+                @RenderBody()
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025.   <a href="https://www.bootstrapdash.com/" target="_blank">Prasar Bharati</a> from IT team. All rights reserved.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">  <i class="ti-heart text-danger ml-1"></i></span>
+                    </div>
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">IT Team</a></span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    @* script *@
+    <script src="~/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script>
+    <script src="~/js/template.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/todolist.js"></script>
+    <script src="~/vendors/chart.js/Chart.min.js"></script>
+    <script src="~/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="~/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="~/js/dataTables.select.min.js"></script>
+    <script src="~/js/dashboard.js"></script>
+    <script src="~/js/Chart.roundedBarCharts.js"></script>
+
+    <!-- jQuery (Required for DataTables) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap 4 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- FixedColumns JS -->
+    <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#viewLocForm').DataTable({
+                "scrollX": true,  // Enable horizontal scrolling
+                fixedColumns: { 
+                    leftColumns: 0  // Fix the first 2 columns
+                }
+            });
+        });
+    </script>
+
+    @*<script>
+        $(document).ready(function () {
+            //$('#example').DataTable({
+            //    "scrollX": true,  // Enable horizontal scrolling
+            //    fixedColumns: {
+            //        leftColumns: 2  // Fix "Action" and "Office Name"
+            //    }
+            //});
+
+            // Function to trigger DataTables redraw to fix alignment
+            function adjustTable() {
+                setTimeout(function () {
+                    table.columns.adjust().draw(); // Recalculate column widths
+                }, 10);
+
+
+            // Handle Edit Button Click
+            //$(document).on("click", ".edit-btn", function () {
+            //    var row = $(this).closest("tr");
+            //    var actionCell = row.find("td:first");
+
+            //    // Replace "Edit" button with "Update" and "Cancel"
+            //    actionCell.html(`
+            //        <button class="btn btn-success btn-sm update-btn">Update</button>
+            //        <br/>
+            //        <button class="btn btn-danger btn-sm cancel-btn" style="margin-top:10px;">Cancel</button>
+            //    `);
+            //});
+
+            $(document).on("click", ".edit-btn", function () {
+                var row = $(this).closest("tr");
+                var actionCell = row.find("td:first");
+
+                // Replace "Edit" button with "Update" and "Cancel" buttons in a single line
+                actionCell.html(`
+                    <div class="btn-group">
+                        <button class="btn btn-success btn-sm update-btn">Update</button>
+                        <button class="btn btn-danger btn-sm cancel-btn">Cancel</button>
+                    </div>
+                `);
+            });
+
+            // Handle Cancel Button Click
+            $(document).on("click", ".cancel-btn", function () {
+                var row = $(this).closest("tr");
+                var actionCell = row.find("td:first");
+
+                // Restore "Edit" button
+                actionCell.html(`<button class="btn btn-primary btn-sm edit-btn">Edit</button>`);
+            });
+
+            // Handle Update Button Click
+            $(document).on("click", ".update-btn", function () {
+                var row = $(this).closest("tr");
+                var actionCell = row.find("td:first");
+
+                // Simulate update action (you can replace this with an AJAX request)
+                alert("Row updated successfully!");
+
+                // Restore "Edit" button after update
+                actionCell.html(`<button class="btn btn-primary btn-sm edit-btn">Edit</button>`);
+            });
+        });
+    </script>*@
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                "scrollX": true,  // Enable horizontal scrolling
+                fixedColumns: {
+                    leftColumns: 2  // Fix "Action" and "Office Name"
+                }
+            });
+
+            // Function to trigger DataTables redraw to fix alignment
+            function adjustTable() {
+                setTimeout(function () {
+                    table.columns.adjust().draw(); // Recalculate column widths
+                }, 10);
+            }
+
+            // Handle Edit Button Click
+            $(document).on("click", ".edit-btn", function () {
+                var row = $(this).closest("tr");
+                var actionCell = row.find("td:first");
+
+                // Replace "Edit" button with "Update" and "Cancel"
+                actionCell.html(`
+            <div class="btn-group">
+                <button class="btn btn-success btn-sm update-btn">Update</button>
+                <button class="btn btn-danger btn-sm cancel-btn">Cancel</button>
+            </div>
+        `);
+
+                adjustTable();  // Fix header alignment
+            });
+
+            // Handle Cancel Button Click
+            $(document).on("click", ".cancel-btn", function () {
+                var row = $(this).closest("tr");
+                var actionCell = row.find("td:first");
+
+                // Restore "Edit" button
+                actionCell.html(`
+            <button class="btn btn-primary btn-sm edit-btn">Edit</button>
+        `);
+
+                adjustTable();  // Fix header alignment
+            });
+
+            // Handle Update Button Click
+            $(document).on("click", ".update-btn", function () {
+                var row = $(this).closest("tr");
+                var actionCell = row.find("td:first");
+
+                // Simulate update action (you can replace this with an AJAX request)
+                alert("Row updated successfully!");
+
+                // Restore "Edit" button after update
+                actionCell.html(`
+            <button class="btn btn-primary btn-sm edit-btn">Edit</button>
+        `);
+
+                adjustTable();  // Fix header alignment
+            });
+        });
+
+    </script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
